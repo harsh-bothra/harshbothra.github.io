@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 1.8rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    .framework {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .framework:hover { transform: translateY(-3px); }
+    .framework h3 { margin-top: 0; font-size: 1.3rem; }
+    .framework p { margin: 0.5rem 0; }
+    #references { max-width: 800px; margin: 0 auto 2rem; padding: 0 1rem; }
+    #references h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    #references ol { padding-left: 1.2rem; color: var(--text); }
+    #references li { margin-bottom: 0.5rem; }
+    #references a { text-decoration: none; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Vulnerability &amp; Risk Rating Frameworks</div>
+  </header>
+  <main>
+    <section>
+      <h2>Scoring Systems</h2>
+      <div class="framework">
+        <h3>Common Vulnerability Scoring System (CVSS v3.1)</h3>
+        <p><strong>Official:</strong> <a href="https://www.first.org/cvss/">first.org/cvss</a></p>
+        <p>Standardized framework to assess vulnerability severity via Base, Temporal, and Environmental metrics for consistent scoring.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Risk Rating Methodologies</h2>
+      <div class="framework">
+        <h3>OWASP Risk Rating Methodology</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-community/OWASP_Risk_Rating_Methodology">owasp.org/OWASP_Risk_Rating_Methodology</a></p>
+        <p>Qualitative model combining likelihood and impact, with factors for threat agent, vulnerability, technical impact, and business impact.</p>
+      </div>
+      <div class="framework">
+        <h3>DREAD</h3>
+        <p><strong>Official:</strong> <a href="https://docs.microsoft.com/en-us/previous-versions/ms994587(v=msdn.10)">docs.microsoft.com/DREAD</a></p>
+        <p>Scores risks based on Damage, Reproducibility, Exploitability, Affected users, and Discoverability criteria.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Threat Modeling Frameworks</h2>
+      <div class="framework">
+        <h3>STRIDE</h3>
+        <p><strong>Official:</strong> <a href="https://docs.microsoft.com/en-us/security/engineering/stride">microsoft.com/STRIDE</a></p>
+        <p>Categorizes threats into Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Additional Models</h2>
+      <div class="framework">
+        <h3>FAIR</h3>
+        <p><strong>Official:</strong> <a href="https://www.fairinstitute.org/">fairinstitute.org</a></p>
+        <p>Financially driven risk analysis model quantifying loss event frequency and probable loss magnitude.</p>
+      </div>
+      <div class="framework">
+        <h3>NIST SP 800-30</h3>
+        <p><strong>Official:</strong> <a href="https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final">csrc.nist.gov/SP-800-30</a></p>
+        <p>Risk management guide including threat &amp; vulnerability identification, impact analysis, and risk determination steps.</p>
+      </div>
+      <div class="framework">
+        <h3>ISO/IEC 31000</h3>
+        <p><strong>Official:</strong> <a href="https://www.iso.org/iso-31000-risk-management.html">iso.org/iso-31000</a></p>
+        <p>Provides principles and generic guidelines for effective risk management across enterprises and industries.</p>
+      </div>
+    </section>
+  </main>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://www.first.org/cvss/">CVSS v3.1</a></li>
+      <li><a href="https://owasp.org/www-community/OWASP_Risk_Rating_Methodology">OWASP Risk Rating</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/previous-versions/ms994587(v=msdn.10)">DREAD</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/security/engineering/stride">STRIDE</a></li>
+      <li><a href="https://www.fairinstitute.org/">FAIR</a></li>
+      <li><a href="https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final">NIST SP 800-30</a></li>
+      <li><a href="https://www.iso.org/iso-31000-risk-management.html">ISO/IEC 31000</a></li>
+    </ol>
+  </section>
+  <script>
+    document.querySelectorAll('.framework').forEach(item => item.addEventListener('click', () => item.classList.toggle('active')));
+  </script>
+</body>
+</html>

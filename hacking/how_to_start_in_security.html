@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 2rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    .step {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .step:hover { transform: translateY(-3px); }
+    .step h3 { margin-top: 0; font-size: 1.3rem; }
+    .step p { margin: 0.5rem 0; }
+    #references {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    #references h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    #references ol {
+      padding-left: 1.2rem;
+      color: var(--text);
+    }
+    #references li { margin-bottom: 0.5rem; }
+    #references a { text-decoration: none; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">How Do I Get Started in Cyber Security</div>
+  </header>
+  <main>
+    <section>
+      <h2>Step 1: Build Your Fundamentals</h2>
+      <div class="step">
+        <h3>Networking &amp; Operating Systems</h3>
+        <p>Learn TCP/IP, common ports, DNS, HTTP, and OS internals (Windows &amp; Linux). Understanding packet flow helps when tracing attacks.</p>
+        <p><strong>Example:</strong> Use Wireshark to capture HTTP traffic and inspect headers for anomalies.</p>
+      </div>
+      <div class="step">
+        <h3>Programming &amp; Scripting</h3>
+        <p>Start with Python and Bash scripting to automate tasks and write simple exploit PoCs. Later, explore PowerShell and JavaScript for web hacking.</p>
+        <p><strong>Example:</strong> Write a Python script to scan open ports on a target range.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Step 2: Dive into Web Security</h2>
+      <div class="step">
+        <h3>OWASP Top 10 &amp; Hands‑On Labs</h3>
+        <p>Study common web vulnerabilities like SQLi, XSS, and CSRF. Practice on labs like DVWA or PortSwigger's Academy to solidify concepts.</p>
+        <p><strong>Attack Vector:</strong> Exploit SQL injection to extract data from a sample database.</p>
+      </div>
+      <div class="step">
+        <h3>APIs &amp; Mobile Security</h3>
+        <p>Test REST/GraphQL endpoints with tools like Postman and Burp Suite. For mobile, learn to reverse‑engineer APKs and inspect API calls.</p>
+        <p><strong>Example:</strong> Use Burp to intercept and modify JSON payloads to bypass authentication.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Step 3: Master Network &amp; Cloud</h2>
+      <div class="step">
+        <h3>Network Pentesting Tools</h3>
+        <p>Familiarize with Nmap for scanning, Metasploit for exploit delivery, and Wireshark for traffic analysis.</p>
+        <p><strong>Example:</strong> Run an Nmap script to detect SSL/TLS misconfigurations on a server.</p>
+      </div>
+      <div class="step">
+        <h3>Cloud &amp; Container Security</h3>
+        <p>Understand IAM roles in AWS/Azure, secure S3 buckets, and scan Docker images with Trivy. Misconfigurations often lead to data leaks.</p>
+        <p><strong>Attack Vector:</strong> Exploiting public S3 bucket to download sensitive files.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Step 4: Practice &amp; Connect</h2>
+      <div class="step">
+        <h3>Hands‑On Platforms</h3>
+        <p>Participate in CTFs on TryHackMe, Hack The Box, or OverTheWire. These platforms offer guided paths for beginners to advanced.</p>
+        <p><strong>Tip:</strong> Log every challenge in a journal to track learnings and commands.</p>
+      </div>
+      <div class="step">
+        <h3>Certifications &amp; Community</h3>
+        <p>Consider Security+ for fundamentals, then OSCP for practical pentesting. Join communities on Reddit, Discord, and local meetups to stay updated.</p>
+        <p><strong>Example:</strong> Share your first write‑up on a CTF challenge in a tech blog or forum.</p>
+      </div>
+    </section>
+  </main>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://hbothra22.medium.com/how-do-i-get-started-in-cyber-security-my-perspective-learning-path-b53065189ba5">Harsh Bothra, “How Do I Get Started in Cyber Security”</a></li>
+      <li><a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a></li>
+      <li><a href="https://tryhackme.com/">TryHackMe Learning Paths</a></li>
+      <li><a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a></li>
+      <li><a href="https://docs.python.org/3/">Python Official Docs</a></li>
+      <li><a href="https://www.offensive-security.com/pwk-oscp/">Offensive Security OSCP Certification</a></li>
+    </ol>
+  </section>
+  <script>
+    document.querySelectorAll('.step').forEach(step => {
+      step.addEventListener('click', () => step.classList.toggle('active'));
+    });
+  </script>
+</body>
+</html>

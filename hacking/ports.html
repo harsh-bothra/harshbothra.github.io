@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 1.8rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: var(--accent);
+      color: white;
+    }
+    #references { max-width: 900px; margin: 0 auto 2rem; padding: 0 1rem; }
+    #references h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    #references ol { padding-left: 1.2rem; color: var(--text); }
+    #references li { margin-bottom: 0.5rem; }
+    #references a { text-decoration: none; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Networking - Ports</div>
+  </header>
+  <main>
+    <section>
+      <h2>Common Networking Ports in Pentesting</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Port</th>
+            <th>Service</th>
+            <th>Protocol</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>19</td><td>chargen</td><td>TCP/UDP</td><td>Character Generator Protocol</td></tr>
+          <tr><td>20</td><td>FTP Data</td><td>TCP</td><td>File Transfer Protocol—data channel</td></tr>
+          <tr><td>21</td><td>FTP Control</td><td>TCP</td><td>File Transfer Protocol—command channel</td></tr>
+          <tr><td>22</td><td>SSH</td><td>TCP</td><td>Secure shell for encrypted remote login</td></tr>
+          <tr><td>23</td><td>Telnet</td><td>TCP</td><td>Unencrypted remote login</td></tr>
+          <tr><td>25</td><td>SMTP</td><td>TCP</td><td>Simple Mail Transfer Protocol—email sending</td></tr>
+          <tr><td>37</td><td>time</td><td>UDP</td><td>Time Protocol—synchronizes time</td></tr>
+          <tr><td>49</td><td>TACACS</td><td>TCP/UDP</td><td>Authentication service</td></tr>
+          <tr><td>53</td><td>DNS</td><td>UDP/TCP</td><td>Domain Name System—name resolution</td></tr>
+          <tr><td>67</td><td>DHCP Server</td><td>UDP</td><td>Dynamic Host Configuration Protocol—IP assignment</td></tr>
+          <tr><td>68</td><td>DHCP Client</td><td>UDP</td><td>DHCP client requests</td></tr>
+          <tr><td>69</td><td>TFTP</td><td>UDP</td><td>Trivial File Transfer Protocol</td></tr>
+          <tr><td>80</td><td>HTTP</td><td>TCP</td><td>Hypertext Transfer Protocol—web traffic</td></tr>
+          <tr><td>88</td><td>Kerberos</td><td>UDP/TCP</td><td>Network authentication protocol</td></tr>
+          <tr><td>110</td><td>POP3</td><td>TCP</td><td>Post Office Protocol v3—email retrieval</td></tr>
+          <tr><td>119</td><td>NNTP</td><td>TCP</td><td>Network News Transfer Protocol</td></tr>
+          <tr><td>123</td><td>NTP</td><td>UDP</td><td>Network Time Protocol</td></tr>
+          <tr><td>135</td><td>MSRPC</td><td>TCP/UDP</td><td>Microsoft RPC endpoint mapper</td></tr>
+          <tr><td>137</td><td>NetBIOS Name</td><td>UDP</td><td>NetBIOS name service</td></tr>
+          <tr><td>138</td><td>NetBIOS Datagram</td><td>UDP</td><td>NetBIOS datagram service</td></tr>
+          <tr><td>139</td><td>NetBIOS Session</td><td>TCP</td><td>NetBIOS session service—Windows file sharing</td></tr>
+          <tr><td>143</td><td>IMAP</td><td>TCP</td><td>Internet Message Access Protocol</td></tr>
+          <tr><td>161</td><td>SNMP</td><td>UDP</td><td>Simple Network Management Protocol</td></tr>
+          <tr><td>162</td><td>SNMP Trap</td><td>UDP</td><td>SNMP trap messages</td></tr>
+          <tr><td>1701</td><td>L2TP</td><td>UDP</td><td>Layer 2 Tunneling Protocol</td></tr>
+          <tr><td>179</td><td>BGP</td><td>TCP</td><td>Border Gateway Protocol</td></tr>
+          <tr><td>389</td><td>LDAP</td><td>TCP/UDP</td><td>Lightweight Directory Access Protocol</td></tr>
+          <tr><td>443</td><td>HTTPS</td><td>TCP</td><td>HTTP over TLS/SSL</td></tr>
+          <tr><td>445</td><td>SMB</td><td>TCP</td><td>Server Message Block—file/printer sharing</td></tr>
+          <tr><td>465</td><td>SMTPS</td><td>TCP</td><td>SMTP over SSL</td></tr>
+          <tr><td>514</td><td>Syslog</td><td>UDP</td><td>System logging service</td></tr>
+          <tr><td>520</td><td>RIP</td><td>UDP</td><td>Routing Information Protocol</td></tr>
+          <tr><td>548</td><td>AFP</td><td>TCP</td><td>Apple Filing Protocol</td></tr>
+          <tr><td>587</td><td>SMTP Submission</td><td>TCP</td><td>Mail submission port</td></tr>
+          <tr><td>636</td><td>LDAPS</td><td>TCP</td><td>LDAP over SSL</td></tr>
+          <tr><td>873</td><td>rsync</td><td>TCP</td><td>File synchronization utility</td></tr>
+          <tr><td>989</td><td>FTPS Data</td><td>TCP</td><td>FTP over SSL—data channel</td></tr>
+          <tr><td>990</td><td>FTPS Control</td><td>TCP</td><td>FTP over SSL—command channel</td></tr>
+          <tr><td>993</td><td>IMAPS</td><td>TCP</td><td>IMAP over SSL</td></tr>
+          <tr><td>995</td><td>POP3S</td><td>TCP</td><td>POP3 over SSL</td></tr>
+          <tr><td>1080</td><td>SOCKS</td><td>TCP</td><td>SOCKS proxy</td></tr>
+          <tr><td>1194</td><td>OpenVPN</td><td>UDP/TCP</td><td>OpenVPN tunneling protocol</td></tr>
+          <tr><td>1433</td><td>MSSQL</td><td>TCP</td><td>Microsoft SQL Server</td></tr>
+          <tr><td>1434</td><td>SQL Monitor</td><td>UDP</td><td>MSSQL server monitor</td></tr>
+          <tr><td>1521</td><td>Oracle DB</td><td>TCP</td><td>Oracle database listener</td></tr>
+          <tr><td>1720</td><td>H.323 Q.931</td><td>TCP</td><td>H.323 call signaling</td></tr>
+          <tr><td>1723</td><td>PPTP</td><td>TCP/UDP</td><td>Point-to-Point Tunneling Protocol</td></tr>
+          <tr><td>1900</td><td>SSDP</td><td>UDP</td><td>Simple Service Discovery Protocol</td></tr>
+          <tr><td>2049</td><td>NFS</td><td>TCP/UDP</td><td>Network File System</td></tr>
+          <tr><td>2082</td><td>cPanel</td><td>TCP</td><td>Web hosting control panel</td></tr>
+          <tr><td>2083</td><td>cPanel SSL</td><td>TCP</td><td>cPanel over SSL</td></tr>
+          <tr><td>2086</td><td>WHM</td><td>TCP</td><td>WebHost Manager</td></tr>
+          <tr><td>2087</td><td>WHM SSL</td><td>TCP</td><td>WHM over SSL</td></tr>
+          <tr><td>2095</td><td>cPanel Webmail</td><td>TCP</td><td>Email interface</td></tr>
+          <tr><td>2096</td><td>cPanel Webmail SSL</td><td>TCP</td><td>Webmail over SSL</td></tr>
+          <tr><td>2181</td><td>ZooKeeper</td><td>TCP</td><td>Apache ZooKeeper coordination service</td></tr>
+          <tr><td>2379</td><td>etcd Client</td><td>TCP</td><td>etcd key-value store client</td></tr>
+          <tr><td>2380</td><td>etcd Server</td><td>TCP</td><td>etcd clustering communications</td></tr>
+          <tr><td>2404</td><td>IEC 60870-5-104</td><td>TCP</td><td>SCADA telecontrol protocol</td></tr>
+          <tr><td>2483</td><td>Oracle TNS</td><td>TCP</td><td>Oracle Transparent Network Substrate</td></tr>
+          <tr><td>2484</td><td>Oracle TNS SSL</td><td>TCP</td><td>Oracle TNS over SSL</td></tr>
+          <tr><td>27017</td><td>MongoDB</td><td>TCP</td><td>MongoDB database server</td></tr>
+          <tr><td>27018</td><td>MongoDB Alt</td><td>TCP</td><td>MongoDB alternative port</td></tr>
+          <tr><td>27019</td><td>MongoDB Config</td><td>TCP</td><td>MongoDB config server</td></tr>
+          <tr><td>2947</td><td>GPSD</td><td>TCP</td><td>GPS Daemon protocol</td></tr>
+          <tr><td>3306</td><td>MySQL</td><td>TCP</td><td>MySQL database server</td></tr>
+          <tr><td>3389</td><td>RDP</td><td>TCP/UDP</td><td>Remote Desktop Protocol</td></tr>
+          <tr><td>3690</td><td>Subversion</td><td>TCP</td><td>SVN version control</td></tr>
+          <tr><td>4369</td><td>EPMD</td><td>TCP/UDP</td><td>Erlang Port Mapper Daemon</td></tr>
+          <tr><td>4500</td><td>IPsec NAT-T</td><td>UDP</td><td>IPsec NAT Traversal</td></tr>
+          <tr><td>5000</td><td>UPnP</td><td>TCP/UDP</td><td>Universal Plug and Play</td></tr>
+          <tr><td>5001</td><td>iSCSI</td><td>TCP</td><td>iSCSI target</td></tr>
+          <tr><td>5060</td><td>SIP</td><td>UDP/TCP</td><td>Session Initiation Protocol</td></tr>
+          <tr><td>5061</td><td>SIP TLS</td><td>TCP</td><td>SIP over TLS</td></tr>
+          <tr><td>5432</td><td>PostgreSQL</td><td>TCP</td><td>PostgreSQL database server</td></tr>
+          <tr><td>5433</td><td>PostgreSQL Alt</td><td>TCP</td><td>Alternate PostgreSQL port</td></tr>
+          <tr><td>5632</td><td>PCANYWHERE</td><td>TCP/UDP</td><td>Symantec pcAnywhere remote control</td></tr>
+          <tr><td>5900</td><td>VNC</td><td>TCP</td><td>Virtual Network Computing</td></tr>
+          <tr><td>5985</td><td>WinRM HTTP</td><td>TCP</td><td>Windows Remote Management (HTTP)</td></tr>
+          <tr><td>5986</td><td>WinRM HTTPS</td><td>TCP</td><td>Windows Remote Management (HTTPS)</td></tr>
+          <tr><td>6379</td><td>Redis</td><td>TCP</td><td>Redis key-value store</td></tr>
+          <tr><td>6667</td><td>IRC</td><td>TCP</td><td>Internet Relay Chat</td></tr>
+          <tr><td>6881</td><td>BitTorrent</td><td>TCP/UDP</td><td>BitTorrent peer-to-peer file sharing</td></tr>
+          <tr><td>8000</td><td>HTTP-alt</td><td>TCP</td><td>Alternate HTTP port</td></tr>
+          <tr><td>8008</td><td>HTTP-alt</td><td>TCP</td><td>Alternate HTTP port</td></tr>
+          <tr><td>8080</td><td>HTTP-alt</td><td>TCP</td><td>Alternate HTTP port / proxy</td></tr>
+          <tr><td>8443</td><td>HTTPS-alt</td><td>TCP</td><td>Alternate HTTPS port</td></tr>
+          <tr><td>9000</td><td>PHP-FPM</td><td>TCP</td><td>PHP FastCGI Process Manager</td></tr>
+          <tr><td>9090</td><td>HTTP-alt</td><td>TCP</td><td>Alternate HTTP port</td></tr>
+          <tr><td>9100</td><td>JetDirect</td><td>TCP</td><td>HP JetDirect printing</td></tr>
+          <tr><td>10000</td><td>Webmin</td><td>TCP</td><td>Web-based system administration</td></tr>
+          <tr><td>11211</td><td>Memcached</td><td>TCP/UDP</td><td>Distributed memory caching system</td></tr>
+          <tr><td>11945</td><td>NetBus</td><td>TCP</td><td>Remote administration Trojan</td></tr>
+          <tr><td>14343</td><td>MS SQL SSL</td><td>TCP</td><td>MSSQL over SSL</td></tr>
+          <tr><td>32768</td><td>RPC Ephemeral</td><td>TCP/UDP</td><td>RPC dynamic assignment range start</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA Service Name and Transport Protocol Port Number Registry</a></li>
+      <li><a href="https://nmap.org/book/man-port-scanning.html">Nmap: Port Scanning Documentation</a></li>
+    </ol>
+  </section>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {--bg:#f9f9f9;--text:#333;--accent:#007acc;--accent-light:#e1f5fe;}
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    header{background:var(--accent);color:white;padding:2rem 1rem;text-align:center;}
+    header h1{margin:0;font-size:2.5rem;}
+    header .subtitle{margin:1rem 0 0;font-size:1.8rem;background:var(--accent-light);color:var(--accent);display:inline-block;padding:0.3rem 0.6rem;border-radius:4px;}
+    main{max-width:800px;margin:2rem auto;padding:0 1rem;}
+    section{margin-bottom:2.5rem;}
+    section h2{color:var(--accent);margin-bottom:1rem;border-bottom:2px solid var(--accent-light);padding-bottom:0.5rem;}
+    .topic{margin-bottom:1.5rem;}
+    .topic h3{margin-top:0;font-size:1.3rem;color:var(--accent);}
+    .topic p{margin:0.5rem 0;text-align:justify;}
+    table{width:100%;border-collapse:collapse;margin:0.5rem 0;}
+    th,td{border:1px solid #ccc;padding:0.5rem;text-align:left;}
+    th{background:var(--accent);color:white;}
+    #references{max-width:800px;margin:0 auto 2rem;padding:0 1rem;}
+    #references h2{color:var(--accent);font-size:1.5rem;margin-bottom:0.5rem;}
+    #references ol{padding-left:1.2rem;color:var(--text);}
+    #references li{margin-bottom:0.5rem;}
+    #references a{text-decoration:none;color:var(--accent);}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Networking for Security Professionals</div>
+  </header>
+  <main>
+    <!-- IP Addressing -->
+    <section>
+      <h2>1. IP Addressing</h2>
+      <div class="topic">
+        <h3>1.1 Classful Addressing (IPv4)</h3>
+        <p>Legacy IPv4 divided the 32-bit address space into five classes (A–E), each with a fixed subnet mask and number of usable host addresses.</p>
+        <table>
+          <thead><tr><th>Class</th><th>Range</th><th>Mask</th><th>Hosts</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>1.0.0.0–126.255.255.255</td><td>/8 (255.0.0.0)</td><td>16,777,214</td></tr>
+            <tr><td>B</td><td>128.0.0.0–191.255.255.255</td><td>/16 (255.255.0.0)</td><td>65,534</td></tr>
+            <tr><td>C</td><td>192.0.0.0–223.255.255.255</td><td>/24 (255.255.255.0)</td><td>254</td></tr>
+            <tr><td>D</td><td>224.0.0.0–239.255.255.255</td><td>Multicast</td><td>N/A</td></tr>
+            <tr><td>E</td><td>240.0.0.0–254.255.255.255</td><td>Experimental</td><td>N/A</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="topic">
+        <h3>1.2 CIDR (Classless Inter-Domain Routing)</h3>
+        <p>CIDR allows variable-length subnet masks. Notation: <code>IP/prefix</code>. Flexibly allocate addresses and reduce waste.</p>
+        <table>
+          <thead><tr><th>CIDR</th><th>Mask</th><th>Total</th><th>Usable</th></tr></thead>
+          <tbody>
+            <tr><td>/8</td><td>255.0.0.0</td><td>16,777,216</td><td>16,777,214</td></tr>
+            <tr><td>/16</td><td>255.255.0.0</td><td>65,536</td><td>65,534</td></tr>
+            <tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td></tr>
+            <tr><td>/26</td><td>255.255.255.192</td><td>64</td><td>62</td></tr>
+            <tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td></tr>
+          </tbody>
+        </table>
+        <p>Example: <code>192.168.1.0/26</code> creates subnets <code>192.168.1.0–.63</code>, <code>.64–.127</code>, etc.</p>
+      </div>
+      <div class="topic">
+        <h3>1.3 IPv6 Addressing</h3>
+        <p>IPv6 uses 128-bit addresses, represented as eight hex groups. Key types:</p>
+        <table>
+          <thead><tr><th>Type</th><th>Prefix</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Global Unicast</td><td>2000::/3</td><td>Public addresses</td></tr>
+            <tr><td>Link-Local</td><td>FE80::/10</td><td>Local subnet only</td></tr>
+            <tr><td>Multicast</td><td>FF00::/8</td><td>One-to-many</td></tr>
+            <tr><td>Unique Local</td><td>FC00::/7</td><td>Private use</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- MAC Address -->
+    <section>
+      <h2>2. MAC Address</h2>
+      <div class="topic">
+        <p>Media Access Control addresses are 48-bit identifiers (e.g., <code>00:1A:2B:3C:4D:5E</code>). First 24 bits (OUI) denote vendor, last 24 bits NIC-specific. Switches build MAC tables to forward frames. ARP resolves IP to MAC within LAN.</p>
+      </div>
+    </section>
+    <!-- PID -->
+    <section>
+      <h2>3. Process Identifier (PID)</h2>
+      <div class="topic">
+        <p>PIDs uniquely identify running OS processes. Commands like <code>netstat -tupn</code> or <code>lsof -i</code> map PIDs to network sockets, crucial for isolating suspicious listeners during incident response.</p>
+      </div>
+    </section>
+    <!-- OSINT Model -->
+    <section>
+      <h2>4. OSINT Model</h2>
+      <div class="topic">
+        <p>The OSINT lifecycle: <strong>Collection</strong> (WHOIS, social media), <strong>Processing</strong> (filter noise), <strong>Analysis</strong> (correlate events), <strong>Dissemination</strong> (report findings). Tools include Maltego, Shodan, theHarvester.</p>
+      </div>
+    </section>
+    <!-- TCP -->
+    <section>
+      <h2>5. TCP Details</h2>
+      <div class="topic">
+        <h3>Header Fields</h3>
+        <table>
+          <thead><tr><th>Field</th><th>Size</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Source Port</td><td>16 bits</td><td>Originating application port</td></tr>
+            <tr><td>Dest Port</td><td>16 bits</td><td>Receiving application port</td></tr>
+            <tr><td>Sequence Number</td><td>32 bits</td><td>Byte stream ordering</td></tr>
+            <tr><td>Ack Number</td><td>32 bits</td><td>Next expected byte</td></tr>
+            <tr><td>Data Offset</td><td>4 bits</td><td>Header length</td></tr>
+            <tr><td>Flags</td><td>9 bits</td><td>SYN, ACK, FIN, etc.</td></tr>
+            <tr><td>Window Size</td><td>16 bits</td><td>Flow control window</td></tr>
+            <tr><td>Checksum</td><td>16 bits</td><td>Error-check</td></tr>
+          </tbody>
+        </table>
+        <p>TCP ensures reliable, ordered delivery through sequence/ack numbers, flow control, and congestion algorithms like Tahoe, Reno, Cubic.</p>
+      </div>
+    </section>
+    <!-- UDP -->
+    <section>
+      <h2>6. UDP Details</h2>
+      <div class="topic">
+        <h3>Header Format</h3>
+        <table>
+          <thead><tr><th>Field</th><th>Size</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Source Port</td><td>16 bits</td><td>Originating port</td></tr>
+            <tr><td>Dest Port</td><td>16 bits</td><td>Dest port</td></tr>
+            <tr><td>Length</td><td>16 bits</td><td>Header+data length</td></tr>
+            <tr><td>Checksum</td><td>16 bits</td><td>Optional error-check</td></tr>
+          </tbody>
+        </table>
+        <p>UDP is connectionless and lightweight—suitable for DNS, VoIP, streaming—but lacks built-in reliability.</p>
+      </div>
+    </section>
+    <!-- 3-Way Handshake -->
+    <section>
+      <h2>7. TCP Three-Way Handshake</h2>
+      <div class="topic">
+        <p><strong>SYN:</strong> Client→Server (seq=X).<br>
+           <strong>SYN-ACK:</strong> Server→Client (seq=Y, ack=X+1).<br>
+           <strong>ACK:</strong> Client→Server (ack=Y+1).</p>
+        <p>This exchange establishes state and initial sequence numbers. Monitoring for incomplete handshakes detects SYN flood attacks.</p>
+      </div>
+    </section>
+    <!-- Packet Encapsulation -->
+    <section>
+      <h2>8. Packet Encapsulation</h2>
+      <div class="topic">
+        <p>Data is wrapped per OSI layers:</p>
+        <table>
+          <thead><tr><th>Layer</th><th>Header</th></tr></thead>
+          <tbody>
+            <tr><td>Data Link</td><td>MAC src/dst, EtherType</td></tr>
+            <tr><td>Network</td><td>IP src/dst, TTL, Protocol</td></tr>
+            <tr><td>Transport</td><td>Ports, Seq/Ack or Length, Flags</td></tr>
+            <tr><td>Application</td><td>Protocol payload (HTTP, DNS, etc.)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- VPN -->
+    <section>
+      <h2>9. VPN &amp; Tunneling</h2>
+      <div class="topic">
+        <p>VPNs secure traffic over public networks via tunnels. Common protocols:</p>
+        <ul>
+          <li><strong>IPsec:</strong> IKE for key exchange (UDP 500), ESP for payload encryption, NAT-T (UDP 4500).</li>
+          <li><strong>OpenVPN:</strong> SSL/TLS-based, custom ports.</li>
+          <li><strong>WireGuard:</strong> Modern, minimal code, uses UDP and public-key crypto.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- DNS -->
+    <section>
+      <h2>10. DNS &amp; Resolution</h2>
+      <div class="topic">
+        <p>DNS resolves hostnames to IPs. Two query types:</p>
+        <ul>
+          <li><strong>Recursive:</strong> Resolver asks root, TLD, and authoritative servers.</li>
+          <li><strong>Iterative:</strong> Client queries each server in turn.</li>
+        </ul>
+        <p>DNSsec adds signatures (RRSIG) and DS records to ensure authenticity and integrity.</p>
+      </div>
+    </section>
+    <!-- ARP -->
+    <section>
+      <h2>11. ARP &amp; MAC Resolution</h2>
+      <div class="topic">
+        <p>ARP maps IP to MAC within a LAN. An ARP request ("Who has IP?") is broadcast; the owner replies. ARP spoofing poisons caches, enabling man-in-the-middle.</p>
+      </div>
+    </section>
+    <!-- DHCP -->
+    <section>
+      <h2>12. DHCP Workflow</h2>
+      <div class="topic">
+        <p>DHCP lease process: <strong>DISCOVER</strong> (client broadcast), <strong>OFFER</strong> (server reply), <strong>REQUEST</strong> (client selects), <strong>ACK</strong> (server confirms). Configuration includes IP, mask, gateway, DNS.</p>
+      </div>
+    </section>
+    <!-- DoS/DDoS -->
+    <section>
+      <h2>13. DoS &amp; DDoS</h2>
+      <div class="topic">
+        <p><strong>DoS:</strong> Single source floods target (e.g., SYN flood).<br>
+           <strong>DDoS:</strong> Distributed via botnet amplifies volume (DNS/ NTP).</p>
+        <p>Mitigation: rate limiting, blackholing, upstream scrubbing services.</p>
+      </div>
+    </section>
+    <!-- IDS -->
+    <section>
+      <h2>14. Intrusion Detection Systems (IDS)</h2>
+      <div class="topic">
+        <p><strong>NIDS:</strong> Monitors network packets.<br>
+           <strong>HIDS:</strong> Monitors host logs and processes.<br>
+           Signature-based detects known patterns; anomaly-based finds deviations from baseline.</p>
+      </div>
+    </section>
+    <!-- Firewalls -->
+    <section>
+      <h2>15. Firewalls</h2>
+      <div class="topic">
+        <p>Types:
+          <ul>
+            <li>Packet-filter: ACLs on IPs/ports.</li>
+            <li>Stateful: tracks connection states.</li>
+            <li>NFGW: inspects application layer, user identity.</li>
+          </ul>
+        </p>
+      </div>
+    </section>
+    <!-- IPS -->
+    <section>
+      <h2>16. Intrusion Prevention Systems (IPS)</h2>
+      <div class="topic">
+        <p>Inline systems that block detected threats (e.g., resets TCP connections). Balance sensitivity to avoid false positives.</p>
+      </div>
+    </section>
+    <!-- Honeypots -->
+    <section>
+      <h2>17. Honeypots &amp; Honeynets</h2>
+      <div class="topic">
+        <p>Decoy systems to attract attackers. Low-interaction emulate services; high-interaction run real OS. Honeynets network multiple honeypots for deeper threat analysis.</p>
+      </div>
+    </section>
+    <!-- SOC -->
+    <section>
+      <h2>18. Security Operations Center (SOC)</h2>
+      <div class="topic">
+        <p>Central team monitors security incidents. Layers:
+          <ul>
+            <li>L1: Triage alerts.</li>
+            <li>L2: Investigation.</li>
+            <li>L3: Threat hunting and forensics.</li>
+          </ul>
+        </p>
+      </div>
+    </section>
+    <section id="references">
+      <h2>References</h2>
+      <ol>
+        <li><a href="https://tools.ietf.org/html/rfc791">RFC 791: IPv4</a></li>
+        <li><a href="https://tools.ietf.org/html/rfc2460">RFC 2460: IPv6</a></li>
+        <li><a href="https://tools.ietf.org/html/rfc793">RFC 793: TCP</a></li>
+        <li><a href="https://tools.ietf.org/html/rfc768">RFC 768: UDP</a></li>
+        <li><a href="https://tools.ietf.org/html/rfc826">RFC 826: ARP</a></li>
+        <li><a href="https://tools.ietf.org/html/rfc2131">RFC 2131: DHCP</a></li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

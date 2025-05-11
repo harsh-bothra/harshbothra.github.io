@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 2rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    .trend {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .trend:hover { transform: translateY(-3px); }
+    .trend h3 { margin-top: 0; font-size: 1.3rem; }
+    .trend p { margin: 0.5rem 0; }
+    #references {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    #references h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    #references ol {
+      padding-left: 1.2rem;
+      color: var(--text);
+    }
+    #references li {
+      margin-bottom: 0.5rem;
+    }
+    #references a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Current Trends in Cyber Security (2025)</div>
+  </header>
+  <main>
+    <section>
+      <h2>Top Trends to Watch in 2025</h2>
+      <div class="trend">
+        <h3>1. AI-Powered Attacks &amp; Defenses</h3>
+        <p>With AI tools maturing, attackers use machine learning to craft personalized phishing emails. Ethical hackers leverage similar tools to predict vulnerabilities.</p>
+        <p><strong>Example:</strong> Phishing campaigns where GPT-based chatbots write convincing scam emails.</p>
+        <p><strong>Attack Vector:</strong> Social engineering enhanced by AI-generated fake audio or chat.</p>
+      </div>
+      <div class="trend">
+        <h3>2. Zero Trust Architecture</h3>
+        <p>Traditional perimeters no longer suffice. Zero trust means “never trust, always verify,” enforcing strict identity checks for every access.</p>
+        <p><strong>Example:</strong> Micro-segmentation where each service communicates only via authenticated APIs.</p>
+        <p><strong>Attack Vector:</strong> Compromised credentials; mitigated by multifactor authentication and least-privilege policies.</p>
+      </div>
+      <div class="trend">
+        <h3>3. Cloud-Native Threats</h3>
+        <p>As businesses move to containers and serverless, misconfigurations become a major risk. Hackers scan open ports and public buckets.</p>
+        <p><strong>Example:</strong> Exposed AWS S3 buckets leaking customer data.</p>
+        <p><strong>Attack Vector:</strong> Misconfigured IAM permissions granting too-broad access.</p>
+      </div>
+      <div class="trend">
+        <h3>4. Supply Chain Attacks</h3>
+        <p>Instead of targeting a big company directly, attackers compromise smaller vendors to insert malicious code upstream.</p>
+        <p><strong>Example:</strong> Malware hidden in a popular open-source library downloaded by thousands of projects.</p>
+        <p><strong>Attack Vector:</strong> Tampering with software dependencies in package repositories.</p>
+      </div>
+      <div class="trend">
+        <h3>5. IoT &amp; OT Security</h3>
+        <p>Smart devices—from home cameras to factory sensors—are lucrative targets. Many lack basic security controls.</p>
+        <p><strong>Example:</strong> Botnets using unsecured routers to launch DDoS attacks.</p>
+        <p><strong>Attack Vector:</strong> Default credentials on IoT devices exploited by automated scanners.</p>
+      </div>
+      <div class="trend">
+        <h3>6. Ransomware Evolution</h3>
+        <p>Ransomware groups now exfiltrate data before encryption, threatening to leak sensitive files.</p>
+        <p><strong>Example:</strong> Double extortion attacks that demand payment to prevent public release of data.</p>
+        <p><strong>Attack Vector:</strong> Phishing emails with malicious attachments enabling initial access.</p>
+      </div>
+    </section>
+  </main>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://www.gartner.com/en/documents/top-security-and-risk-management-trends-2025">Gartner, “Top Security and Risk Management Trends 2025”</a></li>
+      <li><a href="https://csrc.nist.gov/publications/detail/sp/800-207/final">NIST SP 800-207: Zero Trust Architecture</a></li>
+      <li><a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten Web Application Security Risks</a></li>
+      <li><a href="https://cloudsecurityalliance.org/research/">Cloud Security Alliance Research Publications</a></li>
+      <li><a href="https://www.europol.europa.eu/activities-services/main-reports/internet-organised-crime-threat-assessment-iocta-2025">Europol IOCTA 2025</a></li>
+    </ol>
+  </section>
+  <script>
+    document.querySelectorAll('.trend').forEach(trend => {
+      trend.addEventListener('click', () => trend.classList.toggle('active'));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 1.8rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    .framework {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .framework:hover { transform: translateY(-3px); }
+    .framework h3 { margin-top: 0; font-size: 1.3rem; }
+    .framework p { margin: 0.5rem 0; }
+    #references { max-width: 800px; margin: 0 auto 2rem; padding: 0 1rem; }
+    #references h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    #references ol { padding-left: 1.2rem; color: var(--text); }
+    #references li { margin-bottom: 0.5rem; }
+    #references a { text-decoration: none; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Application Security Testing Standards &amp; Frameworks</div>
+  </header>
+  <main>
+    <section>
+      <h2>OWASP Projects</h2>
+      <div class="framework">
+        <h3>OWASP Top Ten (Web)</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-top-ten/">owasp.org/www-project-top-ten/</a></p>
+        <p>Lists the ten most critical web application security risks, updated based on real-world data.</p>
+      </div>
+      <div class="framework">
+        <h3>OWASP Mobile Top Ten</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-mobile-top-10/">owasp.org/www-project-mobile-top-10/</a></p>
+        <p>Highlights the top mobile application risks for Android and iOS platforms.</p>
+      </div>
+      <div class="framework">
+        <h3>OWASP API Security Top Ten</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-api-security/">owasp.org/www-project-api-security/</a></p>
+        <p>Focuses on API-specific vulnerabilities, such as broken object-level authorization and excessive data exposure.</p>
+      </div>
+      <div class="framework">
+        <h3>OWASP ASVS</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-application-security-verification-standard/">owasp.org/www-project-application-security-verification-standard/</a></p>
+        <p>Defines security requirements and controls across multiple verification levels to assess application security posture.</p>
+      </div>
+      <div class="framework">
+        <h3>OWASP Web Security Testing Guide (WSTG)</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-web-security-testing-guide/">owasp.org/www-project-web-security-testing-guide/</a></p>
+        <p>A comprehensive manual for testing web applications, covering authentication, session management, data validation, and more.</p>
+      </div>
+      <div class="framework">
+        <h3>OWASP Mobile Security Testing Guide (MSTG)</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-mobile-security-testing-guide/">owasp.org/www-project-mobile-security-testing-guide/</a></p>
+        <p>Provides detailed test cases and methodologies for mobile application security assessments.</p>
+      </div>
+    </section>
+    <section>
+      <h2>General Standards &amp; Frameworks</h2>
+      <div class="framework">
+        <h3>Penetration Testing Execution Standard (PTES)</h3>
+        <p><strong>Official:</strong> <a href="http://www.pentest-standard.org/">pentest-standard.org</a></p>
+        <p>Outlines phases of a pentest: pre-engagement, intelligence gathering, threat modeling, vulnerability analysis, exploitation, post-exploitation, and reporting.</p>
+      </div>
+      <div class="framework">
+        <h3>Common Weakness Enumeration (CWE)</h3>
+        <p><strong>Official:</strong> <a href="https://cwe.mitre.org/">cwe.mitre.org</a></p>
+        <p>A community-driven list of software and hardware weaknesses, aiding in identifying, understanding, and preventing vulnerabilities.</p>
+      </div>
+      <div class="framework">
+        <h3>SANS/CWE Top 25 Most Dangerous Software Errors</h3>
+        <p><strong>Official:</strong> <a href="https://cwe.mitre.org/top25/">cwe.mitre.org/top25/</a></p>
+        <p>Catalogs the most impactful software errors leading to serious vulnerabilities in applications.</p>
+      </div>
+      <div class="framework">
+        <h3>Building Security In Maturity Model (BSIMM)</h3>
+        <p><strong>Official:</strong> <a href="https://www.bsimm.com/">bsimm.com</a></p>
+        <p>Provides a data-driven model of observed software security practices to measure and guide security initiatives.</p>
+      </div>
+      <div class="framework">
+        <h3>Open Software Assurance Maturity Model (OpenSAMM)</h3>
+        <p><strong>Official:</strong> <a href="https://owasp.org/www-project-OpenSAMM/">owasp.org/www-project-OpenSAMM/</a></p>
+        <p>Framework to help organizations formulate and implement a strategy for software security tailored to their risk profile.</p>
+      </div>
+      <div class="framework">
+        <h3>NIST SP 800-115</h3>
+        <p><strong>Official:</strong> <a href="https://csrc.nist.gov/publications/detail/sp/800-115/final">csrc.nist.gov/publications/detail/sp/800-115/final</a></p>
+        <p>Technical guide for information security testing and assessment, covering network and application-layer evaluations.</p>
+      </div>
+      <div class="framework">
+        <h3>WASC Threat Classification</h3>
+        <p><strong>Official:</strong> <a href="http://projects.webappsec.org/w/page/13246929/Threat%20Classification">projects.webappsec.org/WASC-Threat-Classification</a></p>
+        <p>Categorizes web application threats to help organizations understand and prioritize security risks effectively.</p>
+      </div>
+    </section>
+  </main>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a></li>
+      <li><a href="https://owasp.org/www-project-mobile-top-10/">OWASP Mobile Top Ten</a></li>
+      <li><a href="https://owasp.org/www-project-api-security/">OWASP API Security Top Ten</a></li>
+      <li><a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP ASVS</a></li>
+      <li><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP WSTG</a></li>
+      <li><a href="https://owasp.org/www-project-mobile-security-testing-guide/">OWASP MSTG</a></li>
+      <li><a href="http://www.pentest-standard.org/">PTES</a></li>
+      <li><a href="https://cwe.mitre.org/">CWE</a></li>
+      <li><a href="https://cwe.mitre.org/top25/">SANS/CWE Top 25</a></li>
+      <li><a href="https://www.bsimm.com/">BSIMM</a></li>
+      <li><a href="https://owasp.org/www-project-OpenSAMM/">OpenSAMM</a></li>
+      <li><a href="https://csrc.nist.gov/publications/detail/sp/800-115/final">NIST SP 800-115</a></li>
+      <li><a href="http://projects.webappsec.org/w/page/13246929/Threat%20Classification">WASC Threat Classification</a></li>
+    </ol>
+  </section>
+  <script>
+    document.querySelectorAll('.framework').forEach(item => item.addEventListener('click', () => item.classList.toggle('active')));
+  </script>
+</body>
+</html>

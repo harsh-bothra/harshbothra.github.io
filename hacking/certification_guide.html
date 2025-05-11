@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 2rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    .cert {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .cert:hover { transform: translateY(-3px); }
+    .cert h3 { margin-top: 0; font-size: 1.3rem; }
+    .cert p { margin: 0.5rem 0; }
+    #paths {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    #paths h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    #paths ul { padding-left: 1.2rem; color: var(--text); }
+    #paths li { margin-bottom: 0.8rem; }
+    #references {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    #references h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    #references ol { padding-left: 1.2rem; color: var(--text); }
+    #references li { margin-bottom: 0.5rem; }
+    #references a { text-decoration: none; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Cyber Security Certification Guide</div>
+  </header>
+  <main>
+    <section>
+      <h2>Beginner Certifications</h2>
+      <div class="cert">
+        <h3>CompTIA Security+</h3>
+        <p><strong>Description:</strong> Vendor-neutral entry-level certification covering core security functions.</p>
+        <p><strong>Complexity:</strong> Beginner</p>
+        <p><strong>Skills Required:</strong> Basic networking, threat concepts, cryptography fundamentals.</p>
+        <p><strong>Prerequisites:</strong> CompTIA Network+ recommended but not mandatory.</p>
+        <p><strong>Official:</strong> <a href="https://www.comptia.org/certifications/security">CompTIA Security+</a></p>
+      </div>
+      <div class="cert">
+        <h3>eLearnSecurity Junior Penetration Tester (eJPT)</h3>
+        <p><strong>Description:</strong> Hands-on web and network pentesting fundamentals.</p>
+        <p><strong>Complexity:</strong> Beginner</p>
+        <p><strong>Skills Required:</strong> Linux basics, networking, web app basics.</p>
+        <p><strong>Official:</strong> <a href="https://www.elearnsecurity.com/course/ejpt/">eJPT</a></p>
+      </div>
+    </section>
+    <section>
+      <h2>Intermediate Certifications</h2>
+      <div class="cert">
+        <h3>Certified Ethical Hacker (CEH)</h3>
+        <p><strong>Description:</strong> Offensive security certification teaching common hacking techniques.</p>
+        <p><strong>Complexity:</strong> Intermediate</p>
+        <p><strong>Skills Required:</strong> Networking, scripting, vulnerability analysis.</p>
+        <p><strong>Prerequisites:</strong> 2 years of security experience recommended.</p>
+        <p><strong>Official:</strong> <a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/">CEH</a></p>
+      </div>
+      <div class="cert">
+        <h3>CompTIA CySA+</h3>
+        <p><strong>Description:</strong> Threat detection, behavioral analytics, and incident response.</p>
+        <p><strong>Complexity:</strong> Intermediate</p>
+        <p><strong>Skills Required:</strong> Security monitoring, SIEM tools, threat intelligence.</p>
+        <p><strong>Official:</strong> <a href="https://www.comptia.org/certifications/cybersecurity-analyst">CompTIA CySA+</a></p>
+      </div>
+    </section>
+    <section>
+      <h2>Advanced Certifications</h2>
+      <div class="cert">
+        <h3>Offensive Security Certified Professional (OSCP)</h3>
+        <p><strong>Description:</strong> Practical pentesting certification with 24-hour lab exam.</p>
+        <p><strong>Complexity:</strong> Advanced</p>
+        <p><strong>Skills Required:</strong> Bash, Python, Metasploit, manual exploitation.</p>
+        <p><strong>Official:</strong> <a href="https://www.offensive-security.com/pwk-oscp/">OSCP</a></p>
+      </div>
+      <div class="cert">
+        <h3>CISSP</h3>
+        <p><strong>Description:</strong> Managerial-level certification covering eight security domains.</p>
+        <p><strong>Complexity:</strong> Advanced</p>
+        <p><strong>Prerequisites:</strong> 5 years of security work experience.</p>
+        <p><strong>Official:</strong> <a href="https://www.isc2.org/Certifications/CISSP">CISSP</a></p>
+      </div>
+    </section>
+    <section>
+      <h2>Vendor-Specific & Other Certifications</h2>
+      <!-- INE / eLearnSecurity -->
+      <div class="cert">
+        <h3>eCPPT</h3>
+        <p><strong>Description:</strong> Comprehensive penetration testing process: scoping, enumeration, exploitation, reporting.</p>
+        <p><strong>Official:</strong> <a href="https://www.ine.com/product/certified-professional-penetration-tester-elearnsecurity-eck-course-by-ine">INE eCPPT</a></p>
+      </div>
+      <div class="cert">
+        <h3>eCRTP</h3>
+        <p><strong>Description:</strong> Red teaming basics: adversary simulation, lateral movement, post-exploitation.</p>
+        <p><strong>Official:</strong> <a href="https://www.ine.com/product/certified-red-team-professional-ine?">INE eCRTP</a></p>
+      </div>
+      <div class="cert">
+        <h3>eCRTE</h3>
+        <p><strong>Description:</strong> Advanced red team operations: opsec, persistence, evasion techniques.</p>
+        <p><strong>Official:</strong> <a href="https://www.ine.com/product/certified-red-team-expert-ine">INE eCRTE</a></p>
+      </div>
+      <!-- Offensive Security Advanced -->
+      <div class="cert">
+        <h3>OSWP</h3>
+        <p><strong>Description:</strong> Wi-Fi network penetration testing with Kali Linux.</p>
+        <p><strong>Official:</strong> <a href="https://www.offensive-security.com/wi-fi-security/">OSWP</a></p>
+      </div>
+      <div class="cert">
+        <h3>OSEP</h3>
+        <p><strong>Description:</strong> Advanced web attacks and exploitation techniques.</p>
+        <p><strong>Official:</strong> <a href="https://www.offensive-security.com/advanced-web-attacks-and-exploitation-osep/">OSEP</a></p>
+      </div>
+      <div class="cert">
+        <h3>OSWE</h3>
+        <p><strong>Description:</strong> Deep dive into web application exploit development.</p>
+        <p><strong>Official:</strong> <a href="https://www.offensive-security.com/advanced-web-attacks-and-exploitation-oswe/">OSWE</a></p>
+      </div>
+      <div class="cert">
+        <h3>OSED</h3>
+        <p><strong>Description:</strong> Exploit development methodologies and advanced techniques.</p>
+        <p><strong>Official:</strong> <a href="https://www.offensive-security.com/advanced-exploit-development/">OSED</a></p>
+      </div>
+      <!-- SecOps Group -->
+      <div class="cert">
+        <h3>SecOps Certified SOC Analyst (CSCA)</h3>
+        <p><strong>Description:</strong> SOC operations, monitoring tools, incident detection.</p>
+        <p><strong>Official:</strong> <a href="https://www.secops-group.io/csoca">SecOps CSCA</a></p>
+      </div>
+      <div class="cert">
+        <h3>SecOps Certified Threat Intelligence Analyst (CTIA)</h3>
+        <p><strong>Description:</strong> Threat intelligence lifecycle: collection, analysis, dissemination.</p>
+        <p><strong>Official:</strong> <a href="https://www.secops-group.io/ctia">SecOps CTIA</a></p>
+      </div>
+      <div class="cert">
+        <h3>SecOps Incident Response Specialist (CIRS)</h3>
+        <p><strong>Description:</strong> Incident response process: triage, containment, eradication, recovery.</p>
+        <p><strong>Official:</strong> <a href="https://www.secops-group.io/cirs">SecOps CIRS</a></p>
+      </div>
+      <!-- GIAC Certifications -->
+      <div class="cert">
+        <h3>GSEC</h3>
+        <p><strong>Description:</strong> Security essentials: best practices, policies, and techniques.</p>
+        <p><strong>Official:</strong> <a href="https://www.giac.org/certification/gsec-security-essentials">GSEC</a></p>
+      </div>
+      <div class="cert">
+        <h3>GPEN</h3>
+        <p><strong>Description:</strong> Penetration testing methodologies and tools usage.</p>
+        <p><strong>Official:</strong> <a href="https://www.giac.org/certification/gpen-penetration-tester">GPEN</a></p>
+      </div>
+      <div class="cert">
+        <h3>GCIH</h3>
+        <p><strong>Description:</strong> Incident handling and response techniques.</p>
+        <p><strong>Official:</strong> <a href="https://www.giac.org/certification/gcih-certified-incident-handler">GCIH</a></p>
+      </div>
+      <div class="cert">
+        <h3>GCIA</h3>
+        <p><strong>Description:</strong> Network intrusion analysis and threat detection.</p>
+        <p><strong>Official:</strong> <a href="https://www.giac.org/certification/gcia-certified-intrusion-analyst">GCIA</a></p>
+      </div>
+      <div class="cert">
+        <h3>GWAPT</h3>
+        <p><strong>Description:</strong> Web application penetration testing techniques.</p>
+        <p><strong>Official:</strong> <a href="https://www.giac.org/certification/gwapt-web-application-penetration-tester">GWAPT</a></p>
+      </div>
+    </section>
+  </main>
+  <section id="paths">
+    <h2>Suggested Certification Paths</h2>
+    <ul>
+      <li><strong>Generalist Track:</strong> Security+ → CySA+ → GSEC → CISSP</li>
+      <li><strong>Offensive Specialist:</strong> eJPT → eCPPT → OSCP → OSWE → OSED</li>
+      <li><strong>Red Team Track:</strong> eCRTP → eCRTE → CIRS → Advanced OPSEC courses</li>
+      <li><strong>SOC/Defensive Track:</strong> CSCA → GCIH → GCIA → CISSP</li>
+      <li><strong>Cloud Security Focus:</strong> Security+ → AWS Security Specialty → CCSP</li>
+    </ul>
+  </section>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://www.comptia.org/certifications/security">CompTIA Security+</a></li>
+      <li><a href="https://www.elearnsecurity.com/course/ejpt/">eJPT</a></li>
+      <li><a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/">CEH</a></li>
+      <li><a href="https://www.comptia.org/certifications/cybersecurity-analyst">CompTIA CySA+</a></li>
+      <li><a href="https://www.offensive-security.com/pwk-oscp/">OSCP</a></li>
+      <li><a href="https://www.isc2.org/Certifications/CISSP">CISSP</a></li>
+      <li><a href="https://www.ine.com/product/certified-professional-penetration-tester-elearnsecurity-eck-course-by-ine">INE eCPPT</a></li>
+      <li><a href="https://www.ine.com/product/certified-red-team-professional-ine?">INE eCRTP</a></li>
+      <li><a href="https://www.ine.com/product/certified-red-team-expert-ine">INE eCRTE</a></li>
+      <li><a href="https://www.offensive-security.com/wi-fi-security/">OSWP</a></li>
+      <li><a href="https://www.offensive-security.com/advanced-web-attacks-and-exploitation-osep/">OSEP</a></li>
+      <li><a href="https://www.offensive-security.com/advanced-web-attacks-and-exploitation-oswe/">OSWE</a></li>
+      <li><a href="https://www.offensive-security.com/advanced-exploit-development/">OSED</a></li>
+      <li><a href="https://www.secops-group.io/csoca">SecOps CSCA</a></li>
+      <li><a href="https://www.secops-group.io/ctia">SecOps CTIA</a></li>
+      <li><a href="https://www.secops-group.io/cirs">SecOps CIRS</a></li>
+      <li><a href="https://www.giac.org/certification/gsec-security-essentials">GSEC</a></li>
+      <li><a href="https://www.giac.org/certification/gpen-penetration-tester">GPEN</a></li>
+      <li><a href="https://www.giac.org/certification/gcih-certified-incident-handler">GCIH</a></li>
+      <li><a href="https://www.giac.org/certification/gcia-certified-intrusion-analyst">GCIA</a></li>
+      <li><a href="https://www.giac.org/certification/gwapt-web-application-penetration-tester">GWAPT</a></li>
+    </ol>
+  </section>
+  <script>
+    document.querySelectorAll('.cert').forEach(cert => {
+      cert.addEventListener('click', () => cert.classList.toggle('active'));
+    });
+  </script>
+</body>
+</html>

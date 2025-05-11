@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking: Be A Hacker With Ethics</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --accent-light: #e1f5fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header .subtitle {
+      margin: 1rem 0 0;
+      font-size: 1.8rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+    .protocol {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .protocol h3 { margin-top: 0; font-size: 1.2rem; color: var(--accent); }
+    .protocol p { margin: 0.5rem 0; }
+    #references { max-width: 800px; margin: 0 auto 2rem; padding: 0 1rem; }
+    #references h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    #references ol { padding-left: 1.2rem; color: var(--text); }
+    #references li { margin-bottom: 0.5rem; }
+    #references a { text-decoration: none; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hacking: Be A Hacker With Ethics</h1>
+    <div class="subtitle">Networking - Protocols</div>
+  </header>
+  <main>
+    <section>
+      <h2>Key Protocols Explained</h2>
+      <div class="protocol">
+        <h3>HTTP (Port 80/TCP)</h3>
+        <p>Hypertext Transfer Protocol powers unencrypted web traffic. It follows a request-response model, with clients sending GET or POST requests to servers hosting websites. HTTP is foundational for web browsing but lacks confidentiality unless secured.</p>
+      </div>
+      <div class="protocol">
+        <h3>HTTPS (Port 443/TCP)</h3>
+        <p>HTTP over TLS/SSL ensures encrypted communication between client and server. HTTPS protects data integrity and privacy by wrapping HTTP within a secure TLS layer, preventing eavesdropping and tampering.</p>
+      </div>
+      <div class="protocol">
+        <h3>FTP (Ports 20,21/TCP)</h3>
+        <p>File Transfer Protocol enables file uploads and downloads via separate control (21) and data (20) channels. Standard FTP transmits credentials unencrypted, making it vulnerable to interception unless secured by FTP over TLS (FTPS).</p>
+      </div>
+      <div class="protocol">
+        <h3>SSH (Port 22/TCP)</h3>
+        <p>Secure Shell provides encrypted remote shell access and secure file transfers (SCP, SFTP). SSH is a cornerstone for secure administration, supporting key-based authentication and tunneling.</p>
+      </div>
+      <div class="protocol">
+        <h3>SMTP (Ports 25,587,465/TCP)</h3>
+        <p>Simple Mail Transfer Protocol handles email sending. Port 25 is for server-to-server relays, 587 for client submissions (with STARTTLS), and 465 for SMTP over implicit TLS. Misconfigured SMTP can lead to spam relay or credential leaks.</p>
+      </div>
+      <div class="protocol">
+        <h3>IMAP (Ports 143,993/TCP)</h3>
+        <p>Internet Message Access Protocol allows email retrieval and synchronization across devices. Unsecured on port 143, but encrypted on 993 via TLS. IMAP supports complex mailbox operations, making it a frequent target for credential harvesting.</p>
+      </div>
+      <div class="protocol">
+        <h3>POP3 (Ports 110,995/TCP)</h3>
+        <p>Post Office Protocol v3 downloads emails to a single client, optionally deleting from the server. Unencrypted on 110 and secure on 995 (POP3S). Less favored today due to limited server-side management.</p>
+      </div>
+      <div class="protocol">
+        <h3>DNS (Port 53/UDP, TCP)</h3>
+        <p>Domain Name System translates hostnames to IP addresses. Most queries use UDP, while zone transfers and large responses use TCP. DNS poisoning and cache spoofing remain critical attack vectors.</p>
+      </div>
+      <div class="protocol">
+        <h3>DHCP (Ports 67,68/UDP)</h3>
+        <p>Dynamic Host Configuration Protocol assigns IP addresses and network settings. Clients broadcast on 68, servers listen on 67. Rogue DHCP servers can mislead clients to malicious gateways.</p>
+      </div>
+      <div class="protocol">
+        <h3>TFTP (Port 69/UDP)</h3>
+        <p>Trivial File Transfer Protocol is a lightweight FTP variant without authentication, often used for network booting and firmware updates. Its lack of security makes it an easy vector for unauthorized file transfer.</p>
+      </div>
+      <div class="protocol">
+        <h3>SNMP (Ports 161,162/UDP)</h3>
+        <p>Simple Network Management Protocol monitors and configures network devices. SNMPv1/v2 use community strings as weak 'passwords.' SNMPv3 adds encryption and robust authentication.</p>
+      </div>
+      <div class="protocol">
+        <h3>NTP (Port 123/UDP)</h3>
+        <p>Network Time Protocol synchronizes system clocks. Unsafeguarded NTP servers can be abused for reflection DDoS attacks or time-based authentication bypass.</p>
+      </div>
+      <div class="protocol">
+        <h3>Telnet (Port 23/TCP)</h3>
+        <p>Telnet offers unencrypted remote shell access. Largely deprecated in favor of SSH, but still found on legacy systems. Captured Telnet credentials are in clear text.</p>
+      </div>
+      <div class="protocol">
+        <h3>LDAP (Ports 389/UDP, 636/TCP)</h3>
+        <p>Lightweight Directory Access Protocol structures directory services, like Active Directory. Plain LDAP listens on 389; LDAPS on 636 uses TLS. Misconfigured LDAP can leak user and group information.</p>
+      </div>
+      <div class="protocol">
+        <h3>SMB/CIFS (Port 445/TCP)</h3>
+        <p>Server Message Block facilitates Windows file and printer sharing. Vulnerable services can be exploited via EternalBlue or credential theft through NTLM relay attacks.</p>
+      </div>
+      <div class="protocol">
+        <h3>RDP (Port 3389/TCP, UDP)</h3>
+        <p>Remote Desktop Protocol allows Windows GUI remote access. Exposed RDP endpoints are high-value targets for brute-force, BlueKeep, and other RDP-specific exploits.</p>
+      </div>
+      <div class="protocol">
+        <h3>MQTT (Ports 1883,8883/TCP)</h3>
+        <p>Message Queuing Telemetry Transport is a publish/subscribe protocol for IoT. 1883 is plaintext, while 8883 uses TLS. Unauthorized access can manipulate IoT devices.</p>
+      </div>
+      <div class="protocol">
+        <h3>SIP (Ports 5060/UDP, 5061/TCP)</h3>
+        <p>Session Initiation Protocol establishes VoIP sessions. Port 5060 for unencrypted, 5061 for TLS. SIP misconfigurations can enable eavesdropping or toll fraud.</p>
+      </div>
+      <div class="protocol">
+        <h3>IPsec (Ports 500,4500/UDP; ESP, AH/IP)</h3>
+        <p>IPsec secures IP communications via ESP and AH. UDP ports 500 and 4500 support key exchange (IKE). Properly configured IPsec tunnels protect networks but can be bypassed if mismanaged.</p>
+      </div>
+      <div class="protocol">
+        <h3>GRE (Protocol 47/IP)</h3>
+        <p>Generic Routing Encapsulation tunnels various network layer protocols. Used for VPNs but lacks native encryption, requiring pairing with IPsec for confidentiality.</p>
+      </div>
+      <div class="protocol">
+        <h3>ICMP (Protocol 1/IP)</h3>
+        <p>Internet Control Message Protocol sends diagnostic (echo request/reply) and error messages. ICMP can be abused for network mapping (ping sweeps) or reflection attacks.</p>
+      </div>
+    </section>
+  </main>
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li><a href="https://www.iana.org/protocols">IANA Protocol Numbers Registry</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN Web Docs: HTTP</a></li>
+      <li><a href="https://tools.ietf.org/html/rfc822">RFC 822: SMTP</a></li>
+      <li><a href="https://tools.ietf.org/html/rfc791">RFC 791: Internet Protocol</a></li>
+    </ol>
+  </section>
+</body>
+</html>

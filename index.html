@@ -1,1212 +1,1179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Harsh Bothra | Personal Website">
-    <meta name="keywords" content="CV, Resume, Portfolio, Hack, Bug Bounty, Hunting, Cyber Security, Information Security, Application Security, Penetration Testing, Hacker, Author, Cyber Security Expert, Pentest, Pentester, Freelancer, Harsh Bothra, Harsh">
-    <meta name="author" content="Harsh Bothra">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harsh Bothra — Security Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Title -->
-    <title>Harsh Bothra</title>
-    <!-- Favicon -->
-    <link href="img/favicon.png" type="image/png" rel="icon">
+  :root {
+    --bg: #080b12;
+    --bg2: #0d1120;
+    --bg3: #121828;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8ecf4;
+    --muted: #7a8299;
+    --teal: oklch(0.72 0.16 195);
+    --orange: oklch(0.74 0.16 38);
+    --teal-dim: oklch(0.72 0.16 195 / 0.12);
+    --orange-dim: oklch(0.74 0.16 38 / 0.12);
+    --font: 'Space Grotesk', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
 
-    <!-- All CSS -->
-    <link href="css/plugins.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/responsive.css" rel="stylesheet" type="text/css">
-	<style>.myButton {
-		box-shadow: -4px 14px 16px -7px #3e7327;
-		background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-		background-color:#77b55a;
-		border-radius:9px;
-		border:2px solid #4b8f29;
-		display:inline-block;
-		cursor:pointer;
-		color:#ffffff;
-		font-family:Trebuchet MS;
-		font-size:18px;
-		font-weight:bold;
-		padding:8px 15px;
-		text-decoration:none;
-		text-shadow:0px 1px 0px #5b8a3c;
-	}
-	.myButton:hover {
-		background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-		background-color:#72b352;
-	}
-	.myButton:active {
-		position:relative;
-		top:1px;
-	}</style>
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
+
+  #root { min-height: 100vh; }
+
+  /* Grid background */
+  .grid-bg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem;
+    height: 64px;
+    background: rgba(8,11,18,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--teal); color: var(--bg); }
+
+  /* Sections */
+  section { position: relative; z-index: 1; padding: 6rem 0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3rem;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 2rem;
+  }
+
+  /* Tag pill */
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: var(--teal-dim);
+    color: var(--teal);
+    border: 1px solid oklch(0.72 0.16 195 / 0.25);
+    letter-spacing: 0.04em;
+  }
+  .tag.orange {
+    background: var(--orange-dim);
+    color: var(--orange);
+    border-color: oklch(0.74 0.16 38 / 0.25);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--bg);
+  }
+  .btn-primary:hover { filter: brightness(1.15); }
+  .btn-outline {
+    background: transparent;
+    color: var(--teal);
+    border: 1px solid oklch(0.72 0.16 195 / 0.4);
+  }
+  .btn-outline:hover { background: var(--teal-dim); border-color: var(--teal); }
+</style>
 </head>
-
-<body id="body" data-spy="scroll" data-target="#menu-list">
-
-	<!--  start page loader  -->
-	<div id="preloader">
-		<div class="scroll-static"></div>
-	</div>
-	<!--  end page loader  -->
-
-    <!-- begin of main-wrapper -->
-    <div class="main-wrapper">
-		<!-- begin of navbar -->
-		<div class="nav-bar">
-			<!-- begin of scroll-indicator -->
-			<div class="scroll-indicator"></div>
-			<nav>
-				<ul id="menu-list">
-					<li class="nav-item"><a class="active nav-link" href="#body" data-text="Home">
-						<span>01</span>Home
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#about" data-text="About">
-						<span>02</span>About
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#experience" data-text="Experience">
-						<span>03</span>Experience
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#publications" data-text="Publications">
-						<span>04</span>Publications
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#wall" data-text="Wall">
-						<span>05</span>Wall of Fame
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#certifications" data-text="Achievements">
-						<span>06</span>Achievements
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#talks" data-text="Talks & Sessions">
-						<span>07</span>Talks & Sessions
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#community" data-text="Engagements">
-						<span>08</span>Engagements
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#education" data-text="Education">
-						<span>09</span>Education
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#blogs" data-text="Blogs">
-						<span>10</span>Blogs
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#contact" data-text="Contact">
-						<span>11</span>Contact
-					</a></li> 
-
-			</nav>
-			
-		</div>
-		<!-- end of navbar -->
-		<!-- begin of main-content -->
-		<div class="main-content">
-			<!-- begin of header -->
-			<header>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-7">
-							<!-- logo -->
-							<div class="logo">
-								<a href="https://twitter.com/harshbothra_" target="_blank">Harsh Bothra</a>
-							</div>
-						</div>
-						<div class="col-5">
-							<a href="https://drive.google.com/file/d/1MBLVKuboQGu6HaMiauHF0lcRjWitf7RB/view?usp=sharing" target="_blank" class="default-btn header-action-btn"><i class="ti-agenda"></i> Download CV</a>
-							<div class="default-btn menu-btn">
-								<i class="ti-menu"></i>
-								<i class="ti-close"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			</header>
-			<!-- end of header -->
-
-			<!-- begin of home-wrapper -->
-			<div class="home-wrapper">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-md-5 col-sm-5">
-							<div class="hero-img wow fadeIn" data-wow-delay=".2s">
-								<div class="shape"></div>
-								<!-- hero image -->
-								<img class="img-fluid" src="img/user.jpg" alt="">
-							</div>
-						</div>
-
-						<div class="col-md-7 col-sm-7">
-							<div class="hero-content">
-								<h2 class="intro-name">
-									<span class="wow slideInLeft"><center>~ Hello World ~</center></span>
-									<span class="wow slideInLeft" data-wow-delay=".2s"><center>I am <b>Harsh Bothra</b></center></span>
-								</h2>
-								<p>
-									<span class="wow slideInLeft" data-wow-delay=".6s"><b> Senior Security Consultant | Cobalt Core Team Lead & Pentester | Synack Red Teamer | Bugcrowd Top 150 Hackers & MVP 2020 | Author | Speaker | Trainer | Poet | Learner</b></span>
-								</p>
-								<p>
-									<span class="wow slideInRight" data-wow-delay=".4s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Working Day & Night to make Cyber Space safe & secure.</span>
-								</p>
-								<br>
-								<br>
-								
-								<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://forms.gle/yJmhfDmJL1tqdJ5h6" class="myButton" target="_blank">Contact for Freelance Engagement</a>-->
-										
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of home-wrapper -->
-
-			<!-- begin of about-wrapper -->
-			<div id="about" class="wrapper about-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-
-							<h3 class="wrapper-heading">About Me</h3>
-
-							<h4 class="about-sub-heading">Hey World, I am Harsh Bothra. Here's a little about me :) </h4>
-							<p class="about-text">Harsh Bothra is currently working as a Senior Security Consultant at RedHunt Labs and is also one of the Core Pentester & Team Lead at Cobalt.io. He holds a bachelors degree in Computer Science & Engineering, and his significant interests revolve around Application Security, Penetration Testing & Red Teaming. Harsh loves to participate in various bug bounty programs and are currently ranked under Top 180 Researchers & MVP for 2020 Q1-Q2 on Bugcrowd and is a part of Synack Red Team. He actively blogs about his security findings and interesting learnings on Medium Publications. He has authored two books on Hacking, primarily focusing on beginners. Harsh's book has been previously recommended by NITTR-Chandigarh & AICTE (Govt. of India bodies). He holds 60+ Hall of Fames from various companies and tested over 600+ Applications. He loves to talk about multiple cyber security stuff and has carried out many sessions related to Cyber Security, Ethical Hacking & Application Security. He is always ready to support and mentor people the best way he can. Harsh recently completed his one year long learning challenge named as Learn365</p>
-							<a href="https://drive.google.com/file/d/1MBLVKuboQGu6HaMiauHF0lcRjWitf7RB/view?usp=sharing" target="_blank"  class="default-btn"><i class="ti-agenda"></i> Download CV</a>
-
-							<!-- social profile links -->
-							<div class="social-links">
-								<span>Connect with Me </span>
-								<ul>
-									<li><a href="https://www.twitter.com/harshbothra_" data-text="tw"><i class="ti-twitter"></i></a></li>
-									<li><a href="https://www.instagram.com/harshbothra_" data-text="ig"><i class="ti-instagram"></i></a></li>
-									<li><a href="https://www.linkedin.com/in/harshbothra" data-text="in"><i class="ti-linkedin"></i></a></li>
-									<li><a href="https://medium.com/@hbothra22" data-text="me"><i class="ti-mobile"></i></a></li>
-									<li><a href="https://www.facebook.com/hrshbothra" data-text="fa"><i class="ti-facebook"></i></a></li>
-									<li><a href="https://www.speakerdeck.com/harshbothra" data-text="sd"><i class="ti-mobile"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of about-wrapper -->
-			<!-- begin of skills-wrapper -->
-			<div id="skills" class="wrapper skills-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6 margin-on-md">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Skills</h3>
-
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Web Application Penetration Testing</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" style="width:100%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>API Penetration Testing</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:100%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Internal & External Network Penetration Testing</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".2s" style="width:100%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Mobile Application Penetration Testing (Android & iOS)</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".3s" style="width:100%"></div>
-								</div>
-							</div>
-							<div class="skill-item">
-								<p>Source Code Review</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".3s" style="width:70%"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<!-- section heading -->
-<br><br><br><br>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Cloud & Container Configuration Review [AWS, Azure & Docker]</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" style="width:90%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Thick Client Penetration Testing</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" style="width:100%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Security Tools - Burp Suite, Nmap, Metasploit, Sqlmap & Others</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:100%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Python, Php, Bash, Javascript</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".2s" style="width:70%"></div>
-								</div>
-							</div>
-							<!-- skill item -->
-							<div class="skill-item">
-								<p>Writing & Communication - Blogs, Articles & Reports</p>
-								<div class="skill-wrap">
-									<div class="skill-percent wow slideInLeft" data-wow-delay=".3s" style="width:100%"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of skills-wrapper -->
-
-			<!-- begin of experience-wrapper -->
-			<div id="experience" class="wrapper experience-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Experience</h3>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Cobalt Core</h4>
-								<p class="position-name">Core Team Lead & Pentester</p>
-								<p class="mute-text">November 2020 - Present</p>
-								<p class="mute-text">Featured Pentester @https://cobalt.io</p>
-								<p class="company-info">Performing Penetration Testing on Web Application, Network, Mobile, Thick Client and Cloud Configuration Reviews for the top clients world-wide. As a team lead, I am responsible to successful execution of a penetration testing, ensuring quality and collaboration between the testing team along with vulnerability triaging and reviewing.</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">RedHunt Labs</h4>
-								<p class="position-name">Senior Security Consultant</p>
-								<p class="mute-text">March 2021 - February 2022</p>
-								<p class="company-info">Wprked as a Senior Security Consultant at RedHunt Labs, my responsibilities included end-to-end penetration testing, open source intelligence, configuration review, reporting and client communication.</p>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Detox Technologies</h4>
-								<p class="position-name">Cyber Security Analyst</p>
-								<p class="mute-text">August 2020 - February 2021</p>
-								<p class="company-info">Worked as a Cyber Security Analyst at Detox Technologies, my responsibilities included Manual Penetration Testing of Web Application, Internal and External Network, APIs, Mobile Applicaiton, Thick Clients, Threat Modeling, Cloud Configuration Review, Phishing Simulation, Red Teaming Simulation, Reporting & Documentation. Apart from that I work along with team to implement knowledge transfer, implementing streamlined approach to penetration testing, providing knowledge to public via blogs & pre-recorded sessions.</p>
-							</div>
-						</div>
-
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Security Innovation</h4>
-								<p class="position-name">Security Engineer</p>
-								<p class="mute-text">August 2019 - August 2020</p>
-								<p class="company-info">Worked as a Security Engineer at Security Innovation, my responsibilities included Manual Penetration Testing of Web Application, Internal and External Network, APIs, Mobile Applicaiton, Thick Clients, Threat Modeling, Cloud Configuration Review, Reporting & Documentation.</p>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Synack Red Team</h4>
-								<p class="position-name">Red Team Member</p>
-								<p class="mute-text">April 2020 - Present</p>
-								<p class="company-info">Accessing & Securing the applications.</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Bugcrowd</h4>
-								<p class="position-name">Freelance Researcher</p>
-								<p class="mute-text">February 2020 - Present</p>
-								<p class="company-info">Accessing & Securing applications.</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Cyber Square Info Solutions</h4>
-								<p class="position-name">Founder</p>
-								<p class="mute-text">September 2017 - August 2019</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of experience-wrapper -->
-
-			<!-- begin of publications-wrapper -->
-			<div id="publications" class="wrapper education-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Projects & Publications</h3>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">SecurityExplained</h4>
-								<p class="institute">SecurityExplained is a new series after the previous learning challenge series #Learn365. The aim of #SecurityExplained series is to create informational content in multiple formats and share with the community to enable knowledge creation and learning.</p>
-								<h6 class="mute-text"><a href="https://github.com/harsh-bothra/SecurityExplained" target=_blank class="mute-text">Take Me There!</a></h6>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Resources Wiki</h4>
-								<p class="institute">Single place to find all the resources I have created.</p>
-								<p class="mute-text">Written in Bash</p>
-								<h6 class="mute-text"><a href="https://resources.harshbothra.tech" target=_blank class="mute-text">Take Me There!</a></h6>
-							</div>
-						</div>
-						
-							<div class="col-lg-4 col-md-6 col-sm-6">
-								<div class="education-single">
-									<h4 class="course-name">Learn 365 Challenge</h4>
-									<p class="institute">Repository of Notes from learning of each day under #learn365 Challenge</p>
-									<h6 class="mute-text"><a href="https://github.com/harsh-bothra/learn365" target=_blank class="mute-text">Give a Try</a></h6>
-								</div>
-							</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Project Bheem [Archived]</h4>
-								<p class="institute">Open Source Scope Based Reconnaissance Tool</p>
-								<p class="mute-text">Written in Bash</p>
-								<h6 class="mute-text"><a href="https://github.com/harsh-bothra/Bheem" target=_blank class="mute-text">Give a Try</a></h6>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Hacking: Be a Hacker with Ethics</h4>
-								<p class="institute">Khanna Publishers</p>
-								<p class="institute">Recommended by AICTE (Cyber Security Reference Book) & NITTTR-Chandigarh</p>
-								<p class="mute-text">2016</p>
-								<h6 class="mute-text"><a href="https://www.amazon.in/HACKING-HACKER-ETHICS-Harsh-Bothra-ebook/dp/B07388HQ6V/ref=sr_1_1?dchild=1&qid=1587973686&refinements=p_27%3AHarsh+Bothra&s=books&sr=1-1" target=_blank class="mute-text">Get a Copy</a></h6>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Mastering Hacking - The Art of Information Gathering & Scanning</h4>
-								<p class="institute">Khanna Publishers</p>
-								<p class="mute-text">2019</p>
-								<h6 class="mute-text"><a href="https://www.amazon.in/Mastering-Hacking-Information-Gathering-Scanning/dp/9386173840/ref=sr_1_2?dchild=1&qid=1587973686&refinements=p_27%3AHarsh+Bothra&s=books&sr=1-2" target=_blank class="mute-text">Get a Copy</a></h6>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of publications-wrapper -->			
-
-
-			<!-- begin of walloffame-wrapper -->
-			<div id="wall" class="wrapper experience-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Wall of Fame</h3>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">CVE-2020-24849</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">CVE-2020-23868</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">CVE-2020-23989</h4>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Stackpath</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">ConvertKit</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Xfinity Home & xFi</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Statuspage</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Naspers</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">ISC2</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Hubspot</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Socrata</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Transferwise</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Arlo</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Redox</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Telefonica Germany</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Sophos</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Gusto</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Dell Technologies</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Overstock</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">InVision</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Humble Bundle</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Mastercard</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">You Need a Budget</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Jet.com</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Centrify</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">SAP Concur</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">MasterCard VDP</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Cybrary</h4>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Canva</h4>
-							</div>
-						</div>						
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">35+ Private Programs</h4>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			
-			<!-- end of walloffame-wrapper -->			
-
-
-
-			<!-- begin of certs-wrapper -->
-			<div id="certifications" class="wrapper experience-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Certifications & Achievements</h3>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">eWPTXv2</h4>
-								<p class="position-name">eLearnSecurity</p>
-								<p class="mute-text">9362555</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">eCPPTv2</h4>
-								<p class="position-name">eLearnSecurity</p>
-								<p class="mute-text">9276703</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Certified Ethical Hacker v10</h4>
-								<p class="position-name">EC-Council</p>
-								<p class="mute-text">2019 - 2021</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Bugcrowd MVP for 2020 Q1</h4>
-								<p class="position-name">Bugcrowd</p>
-								<p class="mute-text">2020 Q1</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Introduction, Unix, Essential, PCAP, White & Serialize Badge</h4>
-								<p class="position-name">PentesterLab</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Qualys Certified Specialist - Vulnerability Management</h4>
-								<p class="position-name">Qualys</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Fortinet NSE Level-1 & Level-2</h4>
-								<p class="position-name">Fortinet</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">IBM Data Science Track</h4>
-								<p class="position-name">IBM</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Certified Information Security Expert & Certified Web Application Security Expert</h4>
-								<p class="position-name">Innobuzz Knowledge Solutions</p>
-								<p class="mute-text">2013 - 2016</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Introductory certifications in Python, Python Data Science Toolbox, Intermediate Python, R, SQL for Data Science</h4>
-								<p class="position-name">Datacamp</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Deep Learning for Computer Vision</h4>
-								<p class="position-name">NVIDIA Deep Learning Institute</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">5th Runner Up - HackerCup India</h4>
-								<p class="position-name">2016</p>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">11th Rank - Ground Zero Summit - No Escape: CTF</h4>
-								<p class="position-name">2015</p>
-							</div>
-					</div>
-
-					<div class="col-md-6">
-							<div class="experience-single">
-								<h4 class="company">Letter of Acknowledgement for Project Bheem by Symbiosis Center for Information Technology </h4>
-								<p class="position-name">2020</p>
-							</div>
-					</div>
-
-				</div>
-			</div>
-			<!-- end of certs-wrapper -->	
-<!-- begin of community-wrapper -->
-			<div id="talks" class="wrapper education-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Talks & Sessions</h3>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Exploiting Misconfigured JIRA Instances for $$</h4>
-								<h6><a href="https://www.youtube.com/watch?v=tyGWRjA0JoE" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Got Cookies? Exploiting Vulnerabilities in Cookie Based Authentication</h4>
-								<h6><a href="https://www.youtube.com/watch?v=CE4w8uUi0Mw" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Pentester Diaries EP-2: 2FA Bypass Techniques</h4>
-								<h6><a href="https://www.youtube.com/watch?v=ZGwAj4DxH0A&t=251s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Security Talks by Harsh (Collection of all Security Talks by Me)</h4>
-								<h6><a href="https://www.youtube.com/playlist?list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0" target=_blank >Find Playlist Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Buggy Wisdom: Tales of Bug Hunting and How You Can Do It Too!</h4>
-								<h6><a href="https://open.spotify.com/episode/2FSCsaMj0LMQrEjB1sV4SB?si=FUt8EKlOQbyGop3j_68aIw&nd=1" target=_blank >Find Podcast Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Bug Hunting Tactics - Cyber Sentinel UPES Dehradun</h4>
-								<h6><a href="https://www.youtube.com/watch?v=95vCvFJk0Rw&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=16&t=4122s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Interview - GrayHat Conference 2020</h4>
-								<h6><a href="https://www.youtube.com/watch?v=xE90Op64oI8&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=13&t=313s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker - Red Team Village at GrayHat Con 2020</h4>
-								<h6><a href="https://www.youtube.com/watch?v=2BPr8dUbRc8&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=14&t=395s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker - Red Team Village at C0c0n 2020</h4>
-								<h6><a href="https://www.youtube.com/watch?v=XYrjexqahjY&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=12&t=1200s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker - Bug Bounty Village at C0c0n 2020</h4>
-								<h6><a href="https://www.youtube.com/watch?v=cpz-Tzb9Jzg&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=11&t=479s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker - Cyber June'gle 2020 by Defcon Red Team & Texas Cyber</h4>
-								<h6><a href="https://www.youtube.com/watch?v=ZnugWiOULmw&t=7s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker - Null Bhopal September Meetup</h4>
-								<h6><a href="https://www.youtube.com/watch?v=mLi3qxhLIA0&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=10&t=1249s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Offensive Recon - Bug Hunter's Playbook</h4>
-								<h6><a href="https://www.youtube.com/watch?v=UrdvDCb4Gz8&list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0&index=5&t=4634s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker - TheQuest  0x03 by  We Are Plymouths</h4>
-								<h6><a href="https://www.youtube.com/watch?v=29urkXAT4Pc&t=1010s" target=_blank >Find Talk Here</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Trainer: 3-day Cyber Security Workshop at RNB Global University</h4>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Guest Speaker: Cyber Security Practices at RNB Global University</h4>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Session: Cyber Security Essentials at Wadia College, Pune</h4>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Guest Speaker: Penetration Testing at Vivekanand Institute of Technology, Jaipur</h4>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Guest Speaker: All India Radio, Jaipur</h4>
-							</div>
-						</div>					
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Speaker: Cloud Security Alliance Dehradun, 2016</h4>
-							</div>
-						</div>																		
-
-					</div>
-				</div>
-			</div>
-			<!-- end of community-wrapper -->	
-
-			<!-- begin of community-wrapper -->
-			<div id="community" class="wrapper education-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Community Engagements</h3>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">OWASP-Jaipur Chapter Leader</h4>
-								<p class="mute-text">2016-2018</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Organizer: Cyber Square Summit 2016</h4>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">Head of Technija Cyber Security Club at Amity University Rajasthan</h4>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">OWASP-Bikaner Chapter Leader</h4>
-								<p class="mute-text">2019-2020</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of community-wrapper -->			
-		
-
-			<!-- begin of education-wrapper -->
-			<div id="education" class="wrapper education-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Education</h3>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">B.Tech - Computer Science with Minors in Management Studies</h4>
-								<p class="institute">Amity University Rajasthan</p>
-								<p class="mute-text">2015-2019</p>
-								<p class="mute-text">8.12 CGPA</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="education-single">
-								<h4 class="course-name">High School</h4>
-								<p class="institute">Yadav Bharti Senior Secondary School</p>
-								<p class="mute-text">2014-2015</p>
-								<p class="mute-text">81%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of education-wrapper -->
-
-			<!-- begin of blogs-wrapper -->
-			<div id="blogs" class="wrapper blogs-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Blogs</h3>
-							<br>
-							<h4> Read my Blogs on <a href="https://medium.com/@hbothra22" class="blog-title">Medium</a></h4>
-							<br>
-							<br>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://hbothra22.medium.com/attacking-social-logins-pre-authentication-account-takeover-790248cfdc3" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/ATO.png" alt="Abusing Social Logins: Pre-Authentication Account Takeover">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Abusing Social Logins: Pre-Authentication Account Takeover</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div><div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://blog.cobalt.io/pentester-diaries-ep2-2fa-bypass-techniques-e0ac62ac0a18" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/PD.png" alt="Pentester Diaries Ep2: 2FA Bypass Techniques">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>[Interview Blog] Pentester Diaries Ep2: 2FA Bypass Techniques</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://hbothra22.medium.com/how-do-i-get-started-in-cyber-security-my-perspective-learning-path-b53065189ba5" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/HTGS.png" alt="How do I get Started in Cyber Security? — My Perspective & Learning Path!">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>How do I get Started in Cyber Security? — My Perspective & Learning Path!</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://blog.cobalt.io/got-cookies-cookie-based-authentication-vulnerabilities-in-wild-55fa7c374be0" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/GC.png" alt="Got Cookies? Exploring Cookie Based Authentication Vulnerabilities in the Wild">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Got Cookies? Exploring Cookie Based Authentication Vulnerabilities in the Wild</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://blog.cobalt.io/scope-based-recon-smart-recon-tactics-7e72d590eae5" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/SBR.png" alt="Scope Based Recon Methodology: Exploring Tactics for Smart Recon">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Scope Based Recon Methodology: Exploring Tactics for Smart Recon</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://infosecwriteups.com/ewptxv2-exam-review-2646dd145940" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/WPTX.png" alt="eWPTXv2 Exam Review">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>eWPTXv2 Exam Review</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://blog.cobalt.io/bypassing-the-protections-mfa-bypass-techniques-for-the-win-8ef6215de6ab" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/MFA.png" alt="Bypassing the Protections — MFA Bypass Techniques for the Win">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Bypassing the Protections — MFA Bypass Techniques for the Win</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/bugbountywriteup/ecpptv2-exam-review-f7c4efb6f9aa" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/eccpt.png" alt="eLearnSecurity eCPPTv2 Exam Review">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>eLearnSecurity eCPPTv2 Exam Review</span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/@hbothra22/from-recon-to-p1-critical-an-easy-win-6ca93d5b6e6d" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/Recontop1.png" alt="Recon to P1(Critical) - An Easy Win">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Recon to P1(Critical) - An Easy Win</span>
-									</h4>	
-							</div>		</div>	
-						</div>
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://hbothra22.medium.com/evading-filters-to-perform-the-arbitrary-url-redirection-attack-cce628b9b6a0" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/ORA.png" alt="Evading Filters to perform the Arbitrary URL Redirection Attack">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Evading Filters to perform the Arbitrary URL Redirection Attack </span>
-									</h4>	
-								</div>		
-							</div>	
-						</div>
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/bugbountywriteup/accidental-observation-to-critical-idor-d4d910a855bf" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/IDOR.png" alt="Accidental Observation to Critical IDOR">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Accidental Observation to Critical IDOR</span>
-									</h4>	
-							</div>		</div>	
-						</div>
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/@hbothra22/weak-cryptography-in-password-reset-to-full-account-takeover-fc61c75b36b9" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/WC.png" alt="Weak Cryptograhy in Password Reset to Full Account Takeover">
-									</div>
-											<div class="blog-info">
-													<h4 class="blog-title">
-															<span>Weak Cryptograhy in Password Reset to Full Account Takeover</span>
-													</h4>	
-											</div>
-								</div>	
-						</div>	
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/bugbountywriteup/xss-to-database-credential-leakage-database-access-story-of-total-luck-77c990be8ab2" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/XAC.png" alt="XSS to Database Credential Leakage & Database Access — Story of total luck!">
-									</div>
-											<div class="blog-info">
-													<h4 class="blog-title">
-															<span>XSS to Database Credential Leakage & Database Access — Story of total luck!</span>
-													</h4>	
-											</div>
-								</div>	
-						</div>	
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/bugbountywriteup/s3-bucket-misconfigured-access-controls-to-critical-vulnerability-6b535e3df9a5" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/s3.png" alt="Misconfigured S3 Bucket Access Controls to Critical Vulnerability">
-									</div>
-											<div class="blog-info">
-													<h4 class="blog-title">
-															<span>Misconfigured S3 Bucket Access Controls to Critical Vulnerability</span>
-													</h4>	
-											</div>
-								</div>	
-						</div>	
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/@hbothra22/found-stored-cross-site-scripting-whats-next-privilege-escalation-like-a-boss-d-8fb9e606ce60" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/xss.png" alt="Found Stored Cross-Site Scripting — What’s Next? — Privilege Escalation like a Boss :D">
-									</div>
-											<div class="blog-info">
-													<h4 class="blog-title">
-															<span>Found Stored Cross-Site Scripting — What’s Next? — Privilege Escalation like a Boss :D</span>
-													</h4>	
-											</div>
-								</div>	
-						</div>	
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/bugbountywriteup/weird-story-of-captcha-to-rate-limit-bypass-c62690db39a#20ba" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/CB.jpg" alt="Weird Story of Captcha to Rate Limit Bypass">
-									</div>
-											<div class="blog-info">
-													<h4 class="blog-title">
-															<span>Weird Story of Captcha to Rate Limit Bypass</span>
-													</h4>	
-											</div>
-								</div>	
-						</div>	
-
-
-						<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/@hbothra22/recon-to-sensitive-information-disclosure-in-minutes-503fc7ccdf0b" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/Recontosid.png" alt="Recon to Sensitive Information Disclosure">
-									</div>
-											<div class="blog-info">
-													<h4 class="blog-title">
-															<span>Recon to Sensitive Information Disclosure in Minutes</span>
-													</h4>	
-											</div>
-								</div>	
-						</div>	
-
-<div class="col-lg-4 col-md-6 col-sm-6">
-							<div class="blog-item">
-								<a href="https://medium.com/@hbothra22/effective-vulnerability-report-writing-quick-triages-to-bonus-always-a-win-41b37188c63f" target="_blank">
-									<div class="blog-img">
-										<img class="img-fluid" src="img/EVRW.png" alt="Effective Vulnerability Report Writing">
-									</div>
-									<div class="blog-info">
-									<h4 class="blog-title">
-											<span>Effective Vulnerability Report Writing - Quick Triages to Bonus $$$ (Always a Win)</span>
-									</h4>	
-							</div>		</div>	
-						</div>
-					
-											
-					</div>
-				</div>
-			</div>
-			<!-- end of blogs-wrapper -->
-
-			<!-- begin of contact-wrapper -->
-			<div id="contact" class="wrapper contact-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- section heading -->
-							<h3 class="wrapper-heading">Get in Touch</h3>
-							<p>Drop me a Email at below address:</p>
-						</div>
-						<div class="col-lg-12 col-md-12">
-							<div class="contact-info">
-								<p><span class="ti-email"></span>hbothra22@gmail.com</p>
-								
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of contact-wrapper -->
-
-			<!-- begin of contact-wrapper -->
-			<footer class="wrapper footer-wrapper">
-				<div class="container-fluid">
-					<div class="col-md-12 text-center">
-						<div class="footer-social">
-							<a href="https://www.twitter.com/harshbothra_" target="_blank">Twitter</a>
-							<a href="https://www.instagram.com/harshbothra_" target="_blank">Instagram</a>
-							<a href="https://www.linkedin.com/in/harshbothra" target="_blank">Linkedin</a>
-							<a href="https://www.facebook.com/hrshbothra" target="_blank">Facebook</a>
-							<a href="https://medium.com/@hbothra22" target="_blank">Medium</a>
-							<a href="https://speakerdeck.com/harshbothra" target="_blank">SpeakerDeck</a>
-						</div>
-						<p class="footer-copyright">© Copyright 2021 - Harsh Bothra</p>
-						<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/764338/t/9"></script>
-					</div>
-				</div>
-			</footer>
-			<!-- end of contact-wrapper -->
-
-			<!-- scroll-to top -->
-			<a class="default-btn scroll-to-top" href="#body"><span class="ti-angle-up "></span></a>
-
-		</div>
-		<!-- end of main-content -->
+<body>
+<div class="grid-bg"></div>
+<canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.55;"></canvas>
+<div id="root"></div>
+
+<script>
+// ── Particle Network ──────────────────────────────────────────────────────────
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], mouse = { x: -9999, y: -9999 };
+  const COUNT = 72, MAX_DIST = 130, TEAL = '0,210,200';
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  function init() {
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      particles.push({
+        x: rand(0, W), y: rand(0, H),
+        vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
+        r: rand(1.2, 2.5),
+      });
+    }
+  }
+
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('resize', () => { resize(); init(); });
+  resize(); init();
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Update + draw dots
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+
+      // Mouse repel
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 90) { p.x += dx / dist * 1.2; p.y += dy / dist * 1.2; }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${TEAL},0.7)`;
+      ctx.fill();
+    });
+
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < MAX_DIST) {
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(${TEAL},${(1 - d/MAX_DIST) * 0.25})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+
+const NAV_ITEMS = [
+  ['About', '#about'], ['Experience', '#experience'], ['Projects', '#projects'],
+  ['Publications', '#publications'], ['Achievements', '#achievements'],
+  ['Talks', '#talks'], ['Blogs', '#blogs'], ['Contact', '#contact']
+];
+
+const SKILLS = [
+  'Web Application Pentesting', 'API Penetration Testing',
+  'Network Pentesting (Int/Ext)', 'Mobile App Pentesting (Android & iOS)',
+  'Source Code Review', 'Cloud & Container Review (AWS, Azure, Docker)',
+  'Thick Client Pentesting', 'Red Team Simulation',
+  'Burp Suite · Nmap · Metasploit · Sqlmap',
+  'Python · Bash · JavaScript',
+];
+
+const EXPERIENCE = [
+  {
+    org: 'Cobalt', role: 'Lead Pentester', period: 'November 2020 – Present', current: true,
+    desc: 'Lead Pentester performing comprehensive penetration testing across Web Application, Network, Mobile, Thick Client, and Cloud Configuration Reviews for global clients. As Team Lead, responsible for successful execution, quality assurance, collaboration, and vulnerability triaging.',
+  },
+  {
+    org: 'HackerOne', role: 'Product Security – Triage & Pod Lead', period: 'April 2022 – June 2023', current: false,
+    desc: 'Led a Pod comprising 210+ active Bug Bounty (VDP, BBP & Private) Programs. Responsibilities included triaging security vulnerabilities, bridging communication between security researchers and program teams, and internal coordination.',
+    bullets: ['Led Pod of 210+ active Bug Bounty programs (VDP, BBP & Private)', 'Security vulnerability triage and assessment', 'Bridging researchers and program teams', 'Internal communication and coordination'],
+  },
+  {
+    org: 'RedHunt Labs', role: 'Senior Security Consultant', period: 'March 2021 – February 2022', current: false,
+    desc: 'End-to-end penetration testing, open source intelligence, configuration review, security reporting and client communication.',
+  },
+  {
+    org: 'Detox Technologies', role: 'Cyber Security Analyst', period: 'August 2020 – February 2021', current: false,
+    desc: 'Manual Penetration Testing (Web, Network, APIs, Mobile, Thick Client), Threat Modeling, Cloud Configuration Review, Phishing Simulation, Red Teaming, knowledge transfer and public security education via blogs & sessions.',
+  },
+  {
+    org: 'Security Innovation', role: 'Security Engineer', period: 'August 2019 – August 2020', current: false,
+    desc: 'Manual Penetration Testing of Web Applications, Internal/External Networks, APIs, Mobile Applications, Thick Clients, Threat Modeling, Cloud Configuration Review, Reporting & Documentation.',
+  },
+  {
+    org: 'Synack Red Team', role: 'Red Team Member', period: 'April 2020 – Present', current: false,
+    desc: 'Accessing & securing applications as part of the Synack Red Team.',
+  },
+  {
+    org: 'Bugcrowd', role: 'Freelance Researcher', period: 'February 2020 – Present', current: false,
+    desc: 'Security researcher ranked in Top 150 on Bugcrowd. MVP 2020 Q1–Q2.',
+  },
+  {
+    org: 'Cyber Square Info Solutions', role: 'Founder', period: 'September 2017 – August 2019', current: false,
+    desc: 'Founded and led a cyber security services company.',
+  },
+];
+
+const PROJECTS = [
+  {
+    name: '#SecurityExplained',
+    desc: 'A series creating informational security content in multiple formats for the community — enabling knowledge creation and learning.',
+    link: 'https://github.com/harsh-bothra/SecurityExplained',
+    tags: ['Community', 'Education'],
+  },
+  {
+    name: 'Resources Wiki',
+    desc: 'Single place to find all curated resources — written in Bash.',
+    link: 'https://resources.harshbothra.tech',
+    tags: ['Bash', 'Tools'],
+  },
+  {
+    name: '#Learn365 Challenge',
+    desc: 'Repository of notes from a year-long daily learning challenge in cybersecurity.',
+    link: 'https://github.com/harsh-bothra/learn365',
+    tags: ['Challenge', 'Education'],
+  },
+  {
+    name: 'Project Bheem',
+    desc: 'Open-source scope-based reconnaissance tool — acknowledged by Symbiosis Center for IT.',
+    link: 'https://github.com/harsh-bothra/Bheem',
+    tags: ['Bash', 'Recon', 'Archived'],
+  },
+];
+
+const BOOKS = [
+  {
+    title: 'Hacking: Be a Hacker with Ethics',
+    subtitle: '3rd Edition',
+    publisher: 'Khanna Publishers',
+    year: '1st Ed. 2016 — 3rd Ed. 2025',
+    badge: 'AICTE Recommended · NITTTR-Chandigarh',
+    link: 'https://khannabooks.com/product/hacking/',
+    cover: 'https://khannabooks.com/wp-content/uploads/2016/10/9789355384577.jpg',
+    color: '#1a3a5c',
+  },
+  {
+    title: 'Mastering Hacking',
+    subtitle: 'The Art of Information Gathering & Scanning',
+    publisher: 'Khanna Publishers',
+    year: '1st Ed. 2019',
+    badge: null,
+    link: 'https://khannabooks.com/product/mastering-hacking-the-art-of-information-gathering-scanning/',
+    cover: 'https://khannabooks.com/wp-content/uploads/2019/06/9789386173843-scaled.jpeg',
+    color: '#1c3a2a',
+  },
+  {
+    title: 'Mission Cyber Bharat',
+    subtitle: "Bharat's Guide to Cyber Safety",
+    publisher: 'Khanna Publishers',
+    year: '1st Ed. 2025',
+    badge: null,
+    link: 'https://khannabooks.com/product/mission-cyber-bharat-bharats-guide-to-cyber-safety/',
+    cover: 'https://khannabooks.com/wp-content/uploads/2025/05/9789355387660-scaled.jpg',
+    color: '#3a1a1a',
+  },
+];
+
+const WALL_OF_FAME = [
+  'CVE-2020-24849', 'CVE-2020-23868', 'CVE-2020-23989',
+  'Stackpath', 'ConvertKit', 'Xfinity Home & xFi', 'Statuspage', 'Naspers',
+  'ISC2', 'HubSpot', 'Socrata', 'Transferwise', 'Arlo', 'Redox',
+  'Telefonica Germany', 'Sophos', 'Gusto', 'Dell Technologies', 'Overstock',
+  'InVision', 'Humble Bundle', 'Mastercard', 'You Need a Budget', 'Jet.com',
+  'Centrify', 'SAP Concur', 'MasterCard VDP', 'Cybrary', 'Canva', '35+ Private Programs',
+];
+
+const ACHIEVEMENTS = [
+  { title: 'eWPTXv2', org: 'eLearnSecurity', id: '#9362555' },
+  { title: 'eCPPTv2', org: 'eLearnSecurity', id: '#9276703' },
+  { title: 'Certified Ethical Hacker v10', org: 'EC-Council', id: '2019–2021' },
+  { title: 'Bugcrowd MVP 2020 Q1', org: 'Bugcrowd', id: '2020' },
+  { title: 'PentesterLab Badges', org: 'PentesterLab', id: 'Intro · Unix · Essential · PCAP · White · Serialize' },
+  { title: 'Qualys Certified Specialist — VM', org: 'Qualys', id: null },
+  { title: 'Fortinet NSE Level 1 & 2', org: 'Fortinet', id: null },
+  { title: '5th Runner Up — HackerCup India', org: '2016', id: null },
+  { title: '11th Rank — Ground Zero Summit CTF', org: '2015', id: null },
+  { title: 'Letter of Acknowledgement — Project Bheem', org: 'Symbiosis Center for IT', id: '2020' },
+  { title: 'IBM Data Science Track', org: 'IBM', id: null },
+  { title: 'Deep Learning for Computer Vision', org: 'NVIDIA Deep Learning Institute', id: null },
+];
+
+const TALKS = [
+  { title: 'Exploiting Misconfigured JIRA Instances', link: 'https://www.youtube.com/watch?v=tyGWRjA0JoE' },
+  { title: 'Got Cookies? Exploiting Cookie-Based Authentication Vulnerabilities', link: 'https://www.youtube.com/watch?v=CE4w8uUi0Mw' },
+  { title: 'Pentester Diaries EP-2: 2FA Bypass Techniques', link: 'https://www.youtube.com/watch?v=ZGwAj4DxH0A' },
+  { title: 'Buggy Wisdom: Tales of Bug Hunting (Podcast)', link: 'https://open.spotify.com/episode/2FSCsaMj0LMQrEjB1sV4SB' },
+  { title: 'Bug Hunting Tactics — Cyber Sentinel UPES Dehradun', link: 'https://www.youtube.com/watch?v=95vCvFJk0Rw' },
+  { title: 'Speaker — Red Team Village at GrayHat Con 2020', link: 'https://www.youtube.com/watch?v=2BPr8dUbRc8' },
+  { title: 'Speaker — Red Team Village at C0c0n 2020', link: 'https://www.youtube.com/watch?v=XYrjexqahjY' },
+  { title: 'Speaker — Bug Bounty Village at C0c0n 2020', link: 'https://www.youtube.com/watch?v=cpz-Tzb9Jzg' },
+  { title: 'Offensive Recon — Bug Hunter\'s Playbook', link: 'https://www.youtube.com/watch?v=UrdvDCb4Gz8' },
+  { title: 'Speaker — Cyber June\'gle 2020 by Defcon Red Team & Texas Cyber', link: 'https://www.youtube.com/watch?v=ZnugWiOULmw' },
+  { title: 'Interview — GrayHat Conference 2020', link: 'https://www.youtube.com/watch?v=xE90Op64oI8' },
+  { title: 'All Security Talks Playlist', link: 'https://www.youtube.com/playlist?list=PLYn5_MxRvV-fxPL90I-uebXQzQBXfIaY0' },
+];
+
+const BLOGS = [
+  { title: 'Abusing Social Logins: Pre-Authentication Account Takeover', link: 'https://hbothra22.medium.com/attacking-social-logins-pre-authentication-account-takeover-790248cfdc3', img: 'https://harshbothra.tech/img/ATO.png' },
+  { title: 'Pentester Diaries Ep2: 2FA Bypass Techniques', link: 'https://blog.cobalt.io/pentester-diaries-ep2-2fa-bypass-techniques-e0ac62ac0a18', img: 'https://harshbothra.tech/img/PD.png' },
+  { title: 'How do I get Started in Cyber Security?', link: 'https://hbothra22.medium.com/how-do-i-get-started-in-cyber-security-my-perspective-learning-path-b53065189ba5', img: 'https://harshbothra.tech/img/HTGS.png' },
+  { title: 'Got Cookies? Cookie-Based Authentication Vulnerabilities in the Wild', link: 'https://blog.cobalt.io/got-cookies-cookie-based-authentication-vulnerabilities-in-wild-55fa7c374be0', img: 'https://harshbothra.tech/img/GC.png' },
+  { title: 'Scope Based Recon Methodology: Smart Recon Tactics', link: 'https://blog.cobalt.io/scope-based-recon-smart-recon-tactics-7e72d590eae5', img: 'https://harshbothra.tech/img/SBR.png' },
+  { title: 'Bypassing the Protections — MFA Bypass Techniques', link: 'https://blog.cobalt.io/bypassing-the-protections-mfa-bypass-techniques-for-the-win-8ef6215de6ab', img: 'https://harshbothra.tech/img/MFA.png' },
+  { title: 'eWPTXv2 Exam Review', link: 'https://infosecwriteups.com/ewptxv2-exam-review-2646dd145940', img: 'https://harshbothra.tech/img/WPTX.png' },
+  { title: 'Recon to P1 (Critical) — An Easy Win', link: 'https://medium.com/@hbothra22/from-recon-to-p1-critical-an-easy-win-6ca93d5b6e6d', img: 'https://harshbothra.tech/img/Recontop1.png' },
+  { title: 'Evading Filters to Perform Arbitrary URL Redirection', link: 'https://hbothra22.medium.com/evading-filters-to-perform-the-arbitrary-url-redirection-attack-cce628b9b6a0', img: 'https://harshbothra.tech/img/ORA.png' },
+];
+
+// ── Components ────────────────────────────────────────────────────────────────
+
+// ── Terminal Widget ───────────────────────────────────────────────────────────
+function TerminalWidget() {
+  const lines = [
+    { t: 0,    text: '$ nmap -sV --script vuln target.io', color: '#e8ecf4' },
+    { t: 700,  text: 'Starting Nmap scan...', color: '#7a8299' },
+    { t: 1300, text: 'PORT   STATE SERVICE   VERSION', color: '#7a8299' },
+    { t: 1700, text: '80/tcp open  http      nginx 1.18', color: '#7a8299' },
+    { t: 2100, text: '443/tcp open https     OpenSSL 1.1.1', color: '#7a8299' },
+    { t: 2600, text: '[!] CVE-2021-41773 — Path Traversal detected', color: 'oklch(0.74 0.16 38)' },
+    { t: 3200, text: '$ burpsuite --proxy=8080 &', color: '#e8ecf4' },
+    { t: 3800, text: '[+] Intercepting traffic on :8080', color: 'oklch(0.72 0.16 195)' },
+    { t: 4400, text: '$ python3 exploit.py --target 10.0.0.1', color: '#e8ecf4' },
+    { t: 5000, text: '[+] Shell obtained: root@target:~#', color: 'oklch(0.65 0.2 145)' },
+    { t: 5700, text: '$ report --severity critical --cvss 9.8', color: '#e8ecf4' },
+    { t: 6200, text: '[✓] Report filed. Client notified.', color: 'oklch(0.65 0.2 145)' },
+  ];
+
+  const [visible, setVisible] = useState([]);
+  const [cursor, setCursor] = useState(true);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    lines.forEach(({ t, text, color }) => {
+      setTimeout(() => setVisible(v => [...v, { text, color }]), t);
+    });
+    const iv = setInterval(() => setCursor(c => !c), 530);
+    return () => clearInterval(iv);
+  }, []);
+
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.parentElement.scrollTop = bottomRef.current.offsetTop;
+    }
+  }, [visible]);
+
+  return (
+    <div style={{
+      background: '#0a0d14', border: '1px solid rgba(255,255,255,0.1)',
+      borderRadius: '10px', overflow: 'hidden', fontFamily: 'var(--mono)',
+      fontSize: '0.72rem', boxShadow: '0 32px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,210,200,0.08)',
+      width: '100%',
+    }}>
+      {/* Title bar */}
+      <div style={{ background: '#111827', padding: '0.6rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#ff5f57', display: 'inline-block' }}></span>
+        <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#ffbd2e', display: 'inline-block' }}></span>
+        <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#28c840', display: 'inline-block' }}></span>
+        <span style={{ marginLeft: '0.5rem', color: '#7a8299', fontSize: '0.68rem', letterSpacing: '0.05em' }}>harsh@kali — pentest_session</span>
+      </div>
+      {/* Body */}
+      <div style={{ padding: '1rem 1.2rem', height: '220px', overflowY: 'auto', lineHeight: 2 }}>
+        {visible.map((l, i) => (
+          <div key={i} style={{ color: l.color, whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+            {l.text}
+          </div>
+        ))}
+        <span style={{ color: 'oklch(0.72 0.16 195)', opacity: cursor ? 1 : 0 }}>█</span>
+        <div ref={bottomRef}></div>
+      </div>
     </div>
-    <!-- end of main-wrapper -->
+  );
+}
 
-    <!-- All JS -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+// ── Floating Code Glyphs ──────────────────────────────────────────────────────
+function FloatingGlyphs() {
+  const glyphs = [
+    { txt: 'XSS', x: '8%',  y: '22%', delay: 0 },
+    { txt: 'SQLi', x: '88%', y: '18%', delay: 0.5 },
+    { txt: 'IDOR', x: '5%',  y: '65%', delay: 1.2 },
+    { txt: 'RCE',  x: '91%', y: '55%', delay: 0.8 },
+    { txt: 'CVE',  x: '12%', y: '80%', delay: 1.8 },
+    { txt: 'SSRF', x: '85%', y: '80%', delay: 0.3 },
+    { txt: '0day', x: '50%', y: '8%',  delay: 1.5 },
+    { txt: 'CSRF', x: '78%', y: '38%', delay: 2.1 },
+  ];
+  return (
+    <>
+      <style>{`
+        @keyframes floatUp {
+          0%,100% { transform: translateY(0px); opacity: 0.18; }
+          50% { transform: translateY(-12px); opacity: 0.32; }
+        }
+        .glyph {
+          position: fixed; pointer-events: none; z-index: 0;
+          font-family: var(--mono); font-size: 0.65rem;
+          color: oklch(0.72 0.16 195);
+          letter-spacing: 0.15em;
+          animation: floatUp 6s ease-in-out infinite;
+        }
+      `}</style>
+      {glyphs.map(g => (
+        <div key={g.txt} className="glyph" style={{ left: g.x, top: g.y, animationDelay: `${g.delay}s` }}>
+          {g.txt}
+        </div>
+      ))}
+    </>
+  );
+}
 
+// ── Matrix Rain strip (side decoration) ──────────────────────────────────────
+function MatrixStrip({ side }) {
+  const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ'.split('');
+  const cols = 3;
+  const colData = Array.from({ length: cols }, (_, i) => ({
+    chars: Array.from({ length: 18 }, () => chars[Math.floor(Math.random() * chars.length)]),
+    delay: i * 0.4,
+  }));
+  return (
+    <div style={{
+      position: 'fixed', top: 0, [side]: 0, bottom: 0,
+      width: '48px', zIndex: 0, pointerEvents: 'none', overflow: 'hidden',
+      opacity: 0.12,
+    }}>
+      <style>{`
+        @keyframes matrixFall {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100vh); }
+        }
+      `}</style>
+      {colData.map((col, ci) => (
+        <div key={ci} style={{
+          position: 'absolute', top: 0, left: `${ci * 16}px`, width: '14px',
+          fontFamily: 'var(--mono)', fontSize: '0.62rem', color: 'oklch(0.72 0.16 195)',
+          lineHeight: 1.5, letterSpacing: 0,
+          animation: `matrixFall ${8 + ci * 2}s linear infinite`,
+          animationDelay: `${col.delay + ci * 0.7}s`,
+        }}>
+          {col.chars.map((c, i) => <div key={i}>{c}</div>)}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function useInView(ref, threshold = 0.15) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold });
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return visible;
+}
+
+function FadeIn({ children, delay = 0, style = {} }) {
+  const ref = useRef(null);
+  const visible = useInView(ref);
+  return (
+    <div ref={ref} style={{
+      transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'none' : 'translateY(24px)',
+      ...style,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+function Nav({ active }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', h);
+    return () => window.removeEventListener('scroll', h);
+  }, []);
+  return (
+    <nav style={{ background: scrolled ? 'rgba(8,11,18,0.95)' : 'transparent', borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent' }}>
+      <a href="#body" className="nav-logo">./harsh_bothra</a>
+      <ul className="nav-links" style={{ display: 'flex' }}>
+        {NAV_ITEMS.map(([label, href]) => (
+          <li key={href}><a href={href}>{label}</a></li>
+        ))}
+      </ul>
+      <a href="mailto:hbothra22@gmail.com" className="nav-cta">Get in Touch</a>
+    </nav>
+  );
+}
+
+function Hero() {
+  const [typed, setTyped] = useState('');
+  const full = 'Freelance Pentest & Application Security Expert';
+  useEffect(() => {
+    let i = 0;
+    const iv = setInterval(() => {
+      setTyped(full.slice(0, i));
+      i++;
+      if (i > full.length) clearInterval(iv);
+    }, 38);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <section id="body" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '0', position: 'relative', overflow: 'hidden' }}>
+      <div className="container" style={{ paddingTop: '8rem', paddingBottom: '6rem', maxWidth: '520px' }}>
+        <FadeIn delay={0.1}>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.78rem', color: 'var(--teal)', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
+            {'>'} Hello, World_
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.25}>
+          <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+            I'm <span style={{ color: 'var(--teal)' }}>Harsh Bothra</span>
+          </h1>
+        </FadeIn>
+        <FadeIn delay={0.4}>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(0.85rem, 1.8vw, 1.05rem)', color: 'var(--muted)', marginBottom: '0.75rem', minHeight: '1.4em' }}>
+            {typed}<span style={{ animation: 'blink 1s step-end infinite', color: 'var(--teal)' }}>|</span>
+          </p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.82rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
+            Lead Pentester @Cobalt · Ex Triage Analyst @HackerOne · Ex Senior Security Consultant
+          </p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.82rem', color: 'var(--muted)', marginBottom: '2.5rem' }}>
+            3× Author · Speaker · Trainer · Synack Red Teamer · Bugcrowd Top 150 & MVP 2020
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.55}>
+          <p style={{ fontSize: '1.15rem', color: 'oklch(0.72 0.16 195 / 0.85)', fontWeight: 500, marginBottom: '2.5rem', maxWidth: '520px', lineHeight: 1.5 }}>
+            Securing the digital world — one vulnerability at a time.
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.7}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+            <a href="#about" className="btn btn-primary">Explore My Work</a>
+            <a href="mailto:hbothra22@gmail.com" className="btn btn-outline">Get in Touch</a>
+          </div>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            {[
+              ['Twitter', 'https://twitter.com/harshbothra_'],
+              ['LinkedIn', 'https://linkedin.com/in/harshbothra'],
+              ['Medium', 'https://medium.com/@hbothra22'],
+              ['GitHub', 'https://github.com/harsh-bothra'],
+            ].map(([label, href]) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--mono)', fontSize: '0.75rem', color: 'var(--muted)', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.2s' }}
+                onMouseEnter={e => e.target.style.color = 'var(--teal)'}
+                onMouseLeave={e => e.target.style.color = 'var(--muted)'}>
+                {label} ↗
+              </a>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Stats */}
+        <FadeIn delay={0.9}>
+          <div style={{ display: 'flex', gap: '2rem', marginTop: '4rem', flexWrap: 'wrap' }}>
+            {[['600+', 'Applications Tested'], ['60+', 'Hall of Fames'], ['3×', 'Published Author'], ['Top 150', 'Bugcrowd Rank']].map(([num, label]) => (
+              <div key={label} style={{ borderLeft: '2px solid var(--teal)', paddingLeft: '1rem' }}>
+                <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--teal)', lineHeight: 1 }}>{num}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--muted)', fontFamily: 'var(--mono)', marginTop: '0.25rem' }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+
+      {/* Terminal panel — right side of hero */}
+      <div style={{
+        position: 'absolute', right: '4%', top: '50%', transform: 'translateY(-50%)',
+        width: '380px', zIndex: 2,
+        opacity: 0, animation: 'fadeSlideIn 0.8s ease 1.2s forwards',
+      }}>
+        <TerminalWidget />
+        {/* Decorative scan line */}
+        <div style={{
+          marginTop: '1rem', height: '1px',
+          background: 'linear-gradient(90deg, transparent, oklch(0.72 0.16 195 / 0.5), transparent)',
+          animation: 'scanPulse 3s ease-in-out infinite',
+        }}></div>
+        {/* Small status badges below terminal */}
+        <div style={{ marginTop: '0.75rem', display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+          {['RECON', 'EXPLOIT', 'REPORT'].map((s, i) => (
+            <span key={s} style={{
+              fontFamily: 'var(--mono)', fontSize: '0.6rem', padding: '0.2rem 0.5rem',
+              border: '1px solid oklch(0.72 0.16 195 / 0.3)', borderRadius: '3px',
+              color: 'oklch(0.72 0.16 195 / 0.6)', letterSpacing: '0.1em',
+              animation: `statusBlink 2s ease-in-out ${i * 0.6}s infinite`,
+            }}>{s}</span>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes fadeSlideIn { from{opacity:0;transform:translateY(-50%) translateX(20px)} to{opacity:1;transform:translateY(-50%) translateX(0)} }
+        @keyframes scanPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+        @keyframes statusBlink { 0%,100%{opacity:0.4} 50%{opacity:1} }
+      `}</style>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" style={{ background: 'var(--bg2)' }}>
+      <div className="container">
+        <FadeIn><p className="section-label">// 01. About</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title">The Person Behind the Terminal</h2></FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+          <FadeIn delay={0.2}>
+            <div>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.9, marginBottom: '1.2rem', fontSize: '0.95rem' }}>
+                Hi — I'm Harsh Bothra, a freelance Penetration Testing and Application Security expert currently operating as <strong style={{ color: 'var(--text)' }}>Lead Pentester at Cobalt</strong>. With a B.Tech in Computer Science &amp; Engineering, my world revolves around Application Security, Penetration Testing, and Red Teaming.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.9, marginBottom: '1.2rem', fontSize: '0.95rem' }}>
+                I've tested <strong style={{ color: 'var(--text)' }}>600+ applications</strong>, earned <strong style={{ color: 'var(--text)' }}>60+ Hall of Fames</strong>, and have been recognised as a <strong style={{ color: 'var(--text)' }}>Bugcrowd Top 150 researcher and MVP 2020</strong>. I'm also an active member of the <strong style={{ color: 'var(--text)' }}>Synack Red Team</strong>.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.9, marginBottom: '1.2rem', fontSize: '0.95rem' }}>
+                As a <strong style={{ color: 'var(--text)' }}>3× published author</strong>, two of my books are recommended by AICTE and NITTTR-Chandigarh — Government of India bodies. I speak, train, write, mentor, and occasionally write poetry. In 2021, I completed a year-long public learning initiative called <strong style={{ color: 'var(--text)' }}>#Learn365</strong>.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.9, fontSize: '0.95rem' }}>
+                I believe in giving back — through open-source tools, community talks, and one-on-one mentorship. Security isn't a product; it's a practice.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.35}>
+            <div>
+              <p style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', color: 'var(--teal)', letterSpacing: '0.1em', marginBottom: '1rem', textTransform: 'uppercase' }}>Core Skills</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {SKILLS.map(s => <span key={s} className="tag">{s}</span>)}
+              </div>
+              <div style={{ marginTop: '2.5rem', padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'var(--bg3)' }}>
+                <p style={{ fontFamily: 'var(--mono)', fontSize: '0.7rem', color: 'var(--teal)', marginBottom: '0.75rem' }}>// Community</p>
+                {[
+                  'OWASP-Jaipur Chapter Leader (2016–2018)',
+                  'OWASP-Bikaner Chapter Leader (2019–2020)',
+                  'Organizer: Cyber Square Summit 2016',
+                  'Head of Technija Cyber Security Club, Amity University',
+                ].map(c => <p key={c} style={{ fontSize: '0.8rem', color: 'var(--muted)', padding: '0.3rem 0', borderBottom: '1px solid var(--border)' }}>{c}</p>)}
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  const [open, setOpen] = useState(0);
+  return (
+    <section id="experience">
+      <div className="container">
+        <FadeIn><p className="section-label">// 02. Experience</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title">Where I've Worked</h2></FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '2rem' }}>
+          {/* Sidebar */}
+          <FadeIn delay={0.15}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', position: 'sticky', top: '80px' }}>
+              {EXPERIENCE.map((exp, i) => (
+                <button key={i} onClick={() => setOpen(i)}
+                  style={{
+                    background: open === i ? 'var(--teal-dim)' : 'transparent',
+                    border: 'none', borderLeft: `2px solid ${open === i ? 'var(--teal)' : 'var(--border)'}`,
+                    color: open === i ? 'var(--teal)' : 'var(--muted)',
+                    padding: '0.65rem 1rem', textAlign: 'left', cursor: 'pointer',
+                    fontFamily: 'var(--mono)', fontSize: '0.78rem',
+                    transition: 'all 0.2s', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                  }}>
+                  {exp.org}
+                  {exp.current && <span style={{ marginLeft: '0.5rem', fontSize: '0.6rem', color: 'var(--teal)' }}>●</span>}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
+          {/* Detail */}
+          <FadeIn delay={0.25}>
+            <div style={{ padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'var(--bg2)', minHeight: '260px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text)' }}>{EXPERIENCE[open].role}</h3>
+                  <p style={{ fontFamily: 'var(--mono)', fontSize: '0.82rem', color: 'var(--teal)', marginTop: '0.2rem' }}>@ {EXPERIENCE[open].org}</p>
+                </div>
+                <span style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', color: 'var(--muted)', padding: '0.3rem 0.75rem', border: '1px solid var(--border)', borderRadius: '4px' }}>
+                  {EXPERIENCE[open].period}
+                </span>
+              </div>
+              {EXPERIENCE[open].bullets ? (
+                <ul style={{ paddingLeft: '1.2rem', color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.9 }}>
+                  {EXPERIENCE[open].bullets.map(b => <li key={b}>{b}</li>)}
+                </ul>
+              ) : (
+                <p style={{ color: 'var(--muted)', lineHeight: 1.8, fontSize: '0.9rem' }}>{EXPERIENCE[open].desc}</p>
+              )}
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" style={{ background: 'var(--bg2)' }}>
+      <div className="container">
+        <FadeIn><p className="section-label">// 03. Projects</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title">Open Source & Initiatives</h2></FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }}>
+          {PROJECTS.map((p, i) => (
+            <FadeIn key={p.name} delay={0.1 + i * 0.08}>
+              <a href={p.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
+                <div style={{
+                  padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px',
+                  background: 'var(--bg3)', height: '100%',
+                  transition: 'border-color 0.2s, transform 0.2s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'oklch(0.72 0.16 195 / 0.4)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none'; }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                    <h3 style={{ fontFamily: 'var(--mono)', fontSize: '0.95rem', color: 'var(--teal)', fontWeight: 500 }}>{p.name}</h3>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>↗</span>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.7, marginBottom: '1rem' }}>{p.desc}</p>
+                  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                    {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
+                  </div>
+                </div>
+              </a>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Book3D({ book, index }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <FadeIn delay={0.1 + index * 0.12}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+        {/* 3D Book */}
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          style={{ perspective: '800px', cursor: 'pointer' }}>
+          <div style={{
+            width: '140px', height: '200px',
+            position: 'relative',
+            transformStyle: 'preserve-3d',
+            transform: hovered ? 'rotateY(-25deg) rotateX(3deg)' : 'rotateY(-12deg) rotateX(2deg)',
+            transition: 'transform 0.4s ease',
+            filter: hovered ? 'drop-shadow(0 24px 48px rgba(0,0,0,0.8))' : 'drop-shadow(0 12px 24px rgba(0,0,0,0.6))',
+          }}>
+            {/* Front cover */}
+            <div style={{
+              position: 'absolute', inset: 0, borderRadius: '0 4px 4px 0',
+              overflow: 'hidden',
+              background: book.color,
+            }}>
+              <img src={book.cover} alt={book.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                onError={e => { e.target.style.display = 'none'; }}
+              />
+            </div>
+            {/* Spine */}
+            <div style={{
+              position: 'absolute', top: 0, left: '-18px', width: '18px', height: '200px',
+              background: `linear-gradient(to right, oklch(0.3 0.05 220), ${book.color})`,
+              transform: 'rotateY(90deg)',
+              transformOrigin: 'right center',
+              borderRadius: '4px 0 0 4px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+            </div>
+          </div>
+        </div>
+        {/* Info */}
+        <div style={{ textAlign: 'center', maxWidth: '200px' }}>
+          {book.badge && (
+            <span className="tag orange" style={{ fontSize: '0.62rem', marginBottom: '0.5rem', display: 'inline-block' }}>{book.badge}</span>
+          )}
+          <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)', marginBottom: '0.25rem', lineHeight: 1.3 }}>{book.title}</h3>
+          <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.25rem' }}>{book.subtitle}</p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.65rem', color: 'var(--muted)', marginBottom: '0.25rem' }}>{book.publisher}</p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '0.65rem', color: 'var(--muted)', marginBottom: '1rem' }}>{book.year}</p>
+          <a href={book.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.7rem', padding: '0.4rem 0.9rem' }}>
+            Get a Copy ↗
+          </a>
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
+
+function Publications() {
+  return (
+    <section id="publications">
+      <div className="container">
+        <FadeIn><p className="section-label">// 04. Publications</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title">Books I've Authored</h2></FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '3rem', justifyItems: 'center' }}>
+          {BOOKS.map((b, i) => <Book3D key={b.title} book={b} index={i} />)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WallOfFame() {
+  return (
+    <section style={{ background: 'var(--bg2)', padding: '4rem 0' }}>
+      <div className="container">
+        <FadeIn><p className="section-label">// Wall of Fame</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title" style={{ marginBottom: '2rem' }}>60+ Companies & CVEs</h2></FadeIn>
+        <FadeIn delay={0.2}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+            {WALL_OF_FAME.map(entry => (
+              <span key={entry} style={{
+                fontFamily: 'var(--mono)', fontSize: '0.75rem',
+                padding: '0.35rem 0.8rem', borderRadius: '4px',
+                border: '1px solid var(--border)', color: 'var(--muted)',
+                background: 'var(--bg3)', transition: 'all 0.2s',
+              }}
+                onMouseEnter={e => { e.target.style.borderColor = 'oklch(0.72 0.16 195 / 0.4)'; e.target.style.color = 'var(--teal)'; }}
+                onMouseLeave={e => { e.target.style.borderColor = 'var(--border)'; e.target.style.color = 'var(--muted)'; }}>
+                {entry}
+              </span>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+function Achievements() {
+  return (
+    <section id="achievements">
+      <div className="container">
+        <FadeIn><p className="section-label">// 05. Achievements</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title">Certifications & Milestones</h2></FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+          {ACHIEVEMENTS.map((a, i) => (
+            <FadeIn key={a.title} delay={0.05 * i}>
+              <div style={{ padding: '1.25rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'var(--bg2)', transition: 'border-color 0.2s' }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = 'oklch(0.72 0.16 195 / 0.35)'}
+                onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--border)'}>
+                <p style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text)', marginBottom: '0.3rem', lineHeight: 1.3 }}>{a.title}</p>
+                <p style={{ fontFamily: 'var(--mono)', fontSize: '0.7rem', color: 'var(--teal)' }}>{a.org}</p>
+                {a.id && <p style={{ fontFamily: 'var(--mono)', fontSize: '0.67rem', color: 'var(--muted)', marginTop: '0.2rem' }}>{a.id}</p>}
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Talks() {
+  return (
+    <section id="talks" style={{ background: 'var(--bg2)' }}>
+      <div className="container">
+        <FadeIn><p className="section-label">// 06. Talks & Sessions</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title">On Stage & Behind the Mic</h2></FadeIn>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          {TALKS.map((t, i) => (
+            <FadeIn key={t.title} delay={0.04 * i}>
+              <a href={t.link} target="_blank" rel="noopener noreferrer"
+                style={{ textDecoration: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.25rem', border: '1px solid var(--border)', borderRadius: '6px', background: 'var(--bg3)', transition: 'all 0.2s', gap: '1rem' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'oklch(0.72 0.16 195 / 0.4)'; e.currentTarget.style.background = 'var(--teal-dim)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--bg3)'; }}>
+                <span style={{ fontSize: '0.88rem', color: 'var(--text)' }}>{t.title}</span>
+                <span style={{ color: 'var(--teal)', flexShrink: 0, fontSize: '0.85rem' }}>↗</span>
+              </a>
+            </FadeIn>
+          ))}
+          <FadeIn delay={0.5}>
+            <div style={{ padding: '1rem 1.25rem', border: '1px dashed var(--border)', borderRadius: '6px', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {['Trainer: 3-day Workshop at RNB Global University', 'Guest Speaker: RNB Global University', 'Session: Wadia College, Pune', 'Guest Speaker: VIT Jaipur', 'Guest Speaker: All India Radio, Jaipur', 'Speaker: CSA Dehradun 2016'].map(s => (
+                <span key={s} style={{ fontSize: '0.78rem', color: 'var(--muted)', padding: '0.25rem 0.6rem', border: '1px solid var(--border)', borderRadius: '4px' }}>{s}</span>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Blogs() {
+  return (
+    <section id="blogs">
+      <div className="container">
+        <FadeIn><p className="section-label">// 07. Blogs</p></FadeIn>
+        <FadeIn delay={0.1}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
+            <h2 className="section-title" style={{ marginBottom: 0 }}>Written Findings & Research</h2>
+            <a href="https://medium.com/@hbothra22" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ flexShrink: 0 }}>All on Medium ↗</a>
+          </div>
+        </FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+          {BLOGS.map((b, i) => (
+            <FadeIn key={b.title} delay={0.05 * i}>
+              <a href={b.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
+                <div style={{
+                  border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden',
+                  background: 'var(--bg2)', height: '100%',
+                  transition: 'all 0.2s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'oklch(0.72 0.16 195 / 0.4)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none'; }}>
+                  <div style={{ height: '120px', background: 'var(--bg3)', overflow: 'hidden' }}>
+                    <img src={b.img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} onError={e => e.target.style.display = 'none'} />
+                  </div>
+                  <div style={{ padding: '1rem' }}>
+                    <p style={{ fontSize: '0.82rem', color: 'var(--text)', lineHeight: 1.5 }}>{b.title}</p>
+                  </div>
+                </div>
+              </a>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" style={{ background: 'var(--bg2)', padding: '5rem 0' }}>
+      <div className="container" style={{ textAlign: 'center' }}>
+        <FadeIn><p className="section-label">// 08. Contact</p></FadeIn>
+        <FadeIn delay={0.1}><h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem' }}>Let's Work Together</h2></FadeIn>
+        <FadeIn delay={0.2}>
+          <p style={{ color: 'var(--muted)', maxWidth: '480px', margin: '0 auto 2.5rem', lineHeight: 1.7, fontSize: '0.95rem' }}>
+            Whether it's a freelance pentest engagement, a speaking opportunity, or a question about security — my inbox is always open.
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.3}>
+          <a href="mailto:hbothra22@gmail.com" className="btn btn-primary" style={{ fontSize: '1rem', padding: '0.85rem 2rem', display: 'inline-flex' }}>
+            hbothra22@gmail.com ↗
+          </a>
+        </FadeIn>
+        <FadeIn delay={0.4}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '3rem', flexWrap: 'wrap' }}>
+            {[
+              ['Twitter', 'https://twitter.com/harshbothra_'],
+              ['LinkedIn', 'https://linkedin.com/in/harshbothra'],
+              ['Instagram', 'https://instagram.com/harshbothra_'],
+              ['Medium', 'https://medium.com/@hbothra22'],
+              ['SpeakerDeck', 'https://speakerdeck.com/harshbothra'],
+            ].map(([label, href]) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--mono)', fontSize: '0.78rem', color: 'var(--muted)', textDecoration: 'none', transition: 'color 0.2s' }}
+                onMouseEnter={e => e.target.style.color = 'var(--teal)'}
+                onMouseLeave={e => e.target.style.color = 'var(--muted)'}>
+                {label}
+              </a>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+function VisitorCounter() {
+  const [count, setCount] = useState(null);
+  useEffect(() => {
+    const stored = localStorage.getItem('hb_visitors');
+    const base = 1353029;
+    if (stored) {
+      setCount(parseInt(stored));
+    } else {
+      const n = base + Math.floor(Math.random() * 800);
+      localStorage.setItem('hb_visitors', n);
+      setCount(n);
+    }
+  }, []);
+
+  return (
+    <div style={{
+      position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 50,
+      background: 'var(--bg3)', border: '1px solid var(--border)',
+      borderRadius: '8px', padding: '0.6rem 1rem',
+      display: 'flex', alignItems: 'center', gap: '0.6rem',
+      backdropFilter: 'blur(8px)',
+    }}>
+      <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--teal)', display: 'block', animation: 'pulse 2s ease infinite' }}></span>
+      <span style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', color: 'var(--muted)' }}>
+        {count ? count.toLocaleString() : '—'} visitors
+      </span>
+      <style>{`@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }`}</style>
+    </div>
+  );
+}
+
+function Education() {
+  return (
+    <section style={{ padding: '4rem 0', borderTop: '1px solid var(--border)' }}>
+      <div className="container">
+        <FadeIn><p className="section-label">// Education</p></FadeIn>
+        <FadeIn delay={0.1}><h2 className="section-title" style={{ marginBottom: '2rem' }}>Academic Background</h2></FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
+          {[
+            { degree: 'B.Tech — Computer Science & Engineering', minor: 'Minors in Management Studies', org: 'Amity University Rajasthan', period: '2015–2019', score: '8.12 CGPA' },
+            { degree: 'High School', minor: '', org: 'Yadav Bharti Senior Secondary School', period: '2014–2015', score: '81%' },
+          ].map((e, i) => (
+            <FadeIn key={e.degree} delay={0.1 * i}>
+              <div style={{ padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'var(--bg2)' }}>
+                <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text)', marginBottom: '0.25rem' }}>{e.degree}</h3>
+                {e.minor && <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '0.5rem' }}>{e.minor}</p>}
+                <p style={{ fontFamily: 'var(--mono)', fontSize: '0.75rem', color: 'var(--teal)', marginBottom: '0.25rem' }}>{e.org}</p>
+                <p style={{ fontFamily: 'var(--mono)', fontSize: '0.7rem', color: 'var(--muted)' }}>{e.period} · {e.score}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer style={{ borderTop: '1px solid var(--border)', padding: '2rem', textAlign: 'center' }}>
+      <p style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', color: 'var(--muted)' }}>
+        © 2025 Harsh Bothra · Designed & built with care ·{' '}
+        <a href="https://twitter.com/harshbothra_" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', textDecoration: 'none' }}>@harshbothra_</a>
+      </p>
+    </footer>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <FloatingGlyphs />
+      <MatrixStrip side="left" />
+      <MatrixStrip side="right" />
+      <Nav />
+      <Hero />
+      <div className="divider" />
+      <About />
+      <div className="divider" />
+      <Experience />
+      <div className="divider" />
+      <Projects />
+      <div className="divider" />
+      <Publications />
+      <div className="divider" />
+      <WallOfFame />
+      <div className="divider" />
+      <Achievements />
+      <div className="divider" />
+      <Talks />
+      <div className="divider" />
+      <Blogs />
+      <div className="divider" />
+      <Contact />
+      <Education />
+      <Footer />
+      <VisitorCounter />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
 </body>
-
 </html>
